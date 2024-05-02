@@ -1,0 +1,20 @@
+let vector = []
+        let valor;
+        let indice=0;
+        do{
+            valor = prompt('Ingresa un valor entero (0 para finalizar)');
+            valor = parseInt(valor)
+            if (valor != 0){
+                // asigna el valor al indice del vector y luego continua al siguiente indice
+                vector[indice]=valor
+                indice++;
+            }
+
+        }while(valor !=0);
+
+        let suma = 0;
+        for(f=0;f<vector.length; f++){
+            suma = suma + vector[f];
+        }
+        document.write('Se ingresaron ' + vector.length + ' valores<br>');
+        document.write('La suma de los valores ingresados es:' + suma);
