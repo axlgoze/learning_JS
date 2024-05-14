@@ -17,28 +17,28 @@
         - every
 
 
-## JavaScript Ya !
+# JavaScript Ya !
 
-### Concepts
-
-Values
+## Values
 
 we can start a value with underscore or a letter.
 
+```
 let _value1;
-
+```
+```
 let value1;
-
+```
 we can declare various values in one line
-
+```
 let day, month, year;
-
+```
 hay que nombrar nuestras variables de forma representativa
 
 para imprimir una variable usamos el objeto document y llamamos la funcion write
-
+```
 document.write(_value1);
-
+```
 Tipos de variables
 
 Primitivos
@@ -50,3 +50,13 @@ Primitivos
     - Boolean
     - Null
     - Symbol
+
+
+### Data Input
+
+Para ingresar datos por el teclado podemos usar la función prompt
+```
+let input;
+
+input = prompt('type something: ');
+```
