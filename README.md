@@ -60,3 +60,9 @@ let input;
 
 input = prompt('type something: ');
 ```
+
+## Eventos
+
+Principal Events on JS
+
+![main events](./assets/mainEventsjs.png)
