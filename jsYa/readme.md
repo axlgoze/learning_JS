@@ -13,3 +13,5 @@ cuando dentro de una condicion hay otra condicion.
 ## Operardo &&
 se lee como "Y", se emplea cuando una estructura condicional dispone de dos condiciones.
 
+## Operator or ||
+If condition one is true or condition 2 is true, then execute the true branch
