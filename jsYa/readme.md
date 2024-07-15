@@ -28,3 +28,9 @@ in this structure we have
 
 The while block repeats while condition is true
 
+## Do while
+
+this structure is executed at least once.
+we use it if we know that the repetitive cycle is gonna be executed.
+when the condition is false the structure ends.
+
