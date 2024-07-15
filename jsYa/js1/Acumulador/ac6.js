@@ -13,7 +13,7 @@ while(x<3){
     x++;
 }
 
-if(list1!=NaN){
+// if(list1!=NaN){
     x=0;
     sum=0;
     while(x<3){
@@ -22,7 +22,7 @@ if(list1!=NaN){
         list2=sum;
         x++;
     }
-}
+// }
 
 if(list1==list2){
     document.write("Lists are equal");
