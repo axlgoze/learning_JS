@@ -18,3 +18,13 @@ If condition one is true or condition 2 is true, then execute the true branch
 
 ## Switch structure
 alternative to replace if structures
+
+## While structure
+This is a REPETITIVE structure which can execute one or a various instructions many times.
+
+in this structure we have
+- one or more instructions
+- a test condition before each repetition
+
+The while block repeats while condition is true
+
