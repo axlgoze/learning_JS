@@ -34,3 +34,16 @@ this structure is executed at least once.
 we use it if we know that the repetitive cycle is gonna be executed.
 when the condition is false the structure ends.
 
+
+## For structure
+
+It's used when we KNOW how many times the instructions block is gonna be executed.
+
+a break sentence in any part of the structure will stop it.
+
+⬇️ three parts:
+- initialization
+- condition
+- increment/decrement
+
+
