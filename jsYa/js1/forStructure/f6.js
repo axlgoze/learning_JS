@@ -3,10 +3,10 @@
 // b) Cantidad de triángulos de cada tipo.
 // c) Tipo de triángulo del que hay menor cantidad.
 
-let counter, type, side1, side2, side3, eCounter, iCounter, gCounter, i,e,s;
-i=0;
-e=0;
-s=0;
+let counter, type, side1, side2, side3, eCounter, iCounter, gCounter, iso,equ,sca;
+iso=0;
+equ=0;
+sca=0;
 
 for(counter=1;counter<=3;counter++){
     side1=parseInt(prompt("Enter the first side measurement"));
@@ -34,10 +34,10 @@ for(counter=1;counter<=3;counter++){
         }
     }
 
-    if(i<e && i<s){
+    if(iso<equ && iso<sca){
         let minor = "Isosceles";
     }else{
-        if(e<i && e<s){
+        if(equ<iso && equ<sca){
             minor = "Equilateral";
         }else{
             minor = "Scalene";
@@ -45,11 +45,11 @@ for(counter=1;counter<=3;counter++){
     }
 }
 document.write("<br>");
-document.write("the amount of Isosceles triangles is: "+i);
+document.write("the amount of Isosceles triangles is: "+iso);
 document.write("<br>");
-document.write("the amount of Equilateral triangles is: "+e);
+document.write("the amount of Equilateral triangles is: "+equ);
 document.write("<br>");
-document.write("the amount of Scalene triangles is: "+s);
+document.write("the amount of Scalene triangles is: "+sca);
 document.write("<br>");
 document.write("<br>");
 document.write("The smallest type of triangle is: " +minor);

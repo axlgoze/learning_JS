@@ -6,7 +6,7 @@ for(let f=1;f<=3;f++){
     let base = parseInt(prompt("Enter the base"));
     let height = parseInt(prompt("Enter the height"));
 
-    let area=base*height;
+    let area=base*height/2;
     document.write("<br>");
     document.write("base: "+base);
     document.write("<br>");

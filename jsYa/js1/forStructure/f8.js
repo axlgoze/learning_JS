@@ -14,7 +14,9 @@ sum=0;
 
 for(f=0;f<10;f++){
     input=parseInt(prompt("Enter a number"));
-    sum = sum+input;
+    if(input%2===0){
+        sum = sum+input;
+    }
     if(input%multiple ===0){
         multipleNumbers++;
     }
@@ -33,4 +35,4 @@ document.write("The number of positive data is: "+positives);
 document.write("<br>");
 document.write("The number of negative data is:"+negatives);
 document.write("<br>");
-document.write("The Total is: " + sum);
+document.write("The Total of even numbers is: " + sum);
