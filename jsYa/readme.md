@@ -46,4 +46,9 @@ a break sentence in any part of the structure will stop it.
 - condition
 - increment/decrement
 
+## Functions
+
+permits divide the program in different part helping to reduce the work.
+
+
 
