@@ -5,11 +5,11 @@
 // let diaSemana=fecha.getDay();
 // El método getDay() devuelve el día de la semana de la fecha especificada, siendo 0 (Domingo) el primer día.
 
-let day,month,year;
-let sample = new Date();
-day = sample.getDay();
-month = sample.getMonth();
-year = sample.getFullYear();
+// let day,month,year;
+// let sample = new Date();
+// day = sample.getDay();
+// month = sample.getMonth();
+// year = sample.getFullYear();
 
 function getDay(day){
     switch (day) {
@@ -61,9 +61,15 @@ function getMonth(month){
     }
 }
 
-function getString(year,month,day){
-    document.write("Today is "+getDay(day)+" of "+getMonth(month)+" of the year "+year);
+// function getString(year,month,day){
+//     document.write("Today is "+getDay(day)+" of "+getMonth(month)+" of the year "+year);
+// }
+
+function getString(){
+    let sample = new Date();
+    document.write("Today is "+getDay(sample.getDay())+" of "+getMonth(sample.getMonth())+" of the year "+sample.getFullYear());
 }
 
-getString(year,month,day);
+// getString(year,month,day);
+getString();
 
