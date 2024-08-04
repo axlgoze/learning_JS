@@ -50,5 +50,25 @@ a break sentence in any part of the structure will stop it.
 
 permits divide the program in different part helping to reduce the work.
 
+# POO
+An object is an structure that contains properties and methods. This programming paradigm is based on the concept of objects.
+
+## Classes
+
+A class is a blueprint for creating objects.
+
+## Objects
+
+An object is an instance of a class. An object has attributes and functions and methods that must done.
+
+## polymorphism
+## Hereint
+
+To access to methods and properties we use the next syntax:
+Object.property
+Object.method(property)
+
+## Methods
+it's an algorithm executed responding to a message. responses to a message to satisfy requests.
 
 
