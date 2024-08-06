@@ -71,4 +71,6 @@ Object.method(property)
 ## Methods
 it's an algorithm executed responding to a message. responses to a message to satisfy requests.
 
-
+# Array class
+A vector is a data structure that stores a group of data.
+It has a unique name and we refer to its elements by a subindex.
