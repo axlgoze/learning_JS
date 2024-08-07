@@ -74,3 +74,85 @@ it's an algorithm executed responding to a message. responses to a message to sa
 # Array class
 A vector is a data structure that stores a group of data.
 It has a unique name and we refer to its elements by a subindex.
+
+
+## Math class
+<h1>Math's class methods</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Method</th>
+                <th>Description</th>
+                <th>Example Expression</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>abs</td>
+                <td>Absolute value</td>
+                <td>Math.abs(-2)</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>sin, cos, tan</td>
+                <td>Trigonometric functions, take the argument in radians</td>
+                <td>Math.cos(Math.PI)</td>
+                <td>-1</td>
+            </tr>
+            <tr>
+                <td>asin, acos, atan</td>
+                <td>Inverse trigonometric functions</td>
+                <td>Math.asin(1)</td>
+                <td>1.57</td>
+            </tr>
+            <tr>
+                <td>exp, log</td>
+                <td>Exponentiation and logarithm, base E</td>
+                <td>Math.log(Math.E)</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>ceil</td>
+                <td>Returns the smallest integer greater than or equal to the argument</td>
+                <td>Math.ceil(-2.7)</td>
+                <td>-2</td>
+            </tr>
+            <tr>
+                <td>floor</td>
+                <td>Returns the largest integer less than or equal to the argument</td>
+                <td>Math.floor(-2.7)</td>
+                <td>-3</td>
+            </tr>
+            <tr>
+                <td>round</td>
+                <td>Returns the nearest integer to the argument</td>
+                <td>Math.round(-2.7)</td>
+                <td>-3</td>
+            </tr>
+            <tr>
+                <td>min, max</td>
+                <td>Returns the smaller (or larger) of its two arguments</td>
+                <td>Math.min(2,4)</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>pow</td>
+                <td>Exponentiation, with the first argument as the base and the second as the exponent</td>
+                <td>Math.pow(2,3)</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>sqrt</td>
+                <td>Square root</td>
+                <td>Math.sqrt(25)</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>random</td>
+                <td>Generates a random value between 0 and 1</td>
+                <td>Math.random()</td>
+                <td>Math.random()</td>
+            </tr>
+        </tbody>
+    </table>
