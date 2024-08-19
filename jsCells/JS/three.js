@@ -8,3 +8,4 @@ const employee = {
 const street = employee.address.street;
 
 console.log(street);
+// error street is undefined.

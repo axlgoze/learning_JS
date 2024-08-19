@@ -9,3 +9,5 @@ let first = ('o__o'.padStart(10,'-')).padEnd(15,'-');
         console.log('same');
     }
 
+// padStart pads a string at the start
+//padEnd pads a string at the end.
