@@ -156,3 +156,18 @@ It has a unique name and we refer to its elements by a subindex.
             </tr>
         </tbody>
     </table>
+
+    ## String class
+    a String consist in one or more characters inside double quotes or simple quotes.
+
+    we can concatenate string with "+" operator.
+
+    ### length property
+    Returns the number of characters in a string.
+
+    ### Methods
+    charA() --> returns the character with the specified index
+    substring() -->  returns a substring form other
+    indexOf() --> returns the position of the substring , -1 if does not exist
+    toUpperCase() --> convert characters to upper case
+    toLowerCase() --> convert characters to lower case
