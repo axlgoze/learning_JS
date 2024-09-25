@@ -104,3 +104,103 @@ diferencia lenguaje inter y compi
 
 > The basic toolkit needed to effectively develop JS code consist of two elements: code editor, interpreter.
 
+
+# MODULE 2
+Variables, Data types, type Casting, and comments
+
+## Variables
+
+> a variable can be imagine as a container in which you can store certain information.
+
+A variable must be declared before use. Declaring is simply "reserving" the name of the variable.
+
+
+> In JS, a variable name must not start with a digit.
+> JS interpreter distinguishes between lower-case and upper-case letters
+
+There is a set of reserved words that cannot be used to name variables, here are some of them:
+
+- abstract
+- break
+- await
+- boolean
+- catch
+- continue
+- do
+- final
+- function
+- import
+- goto
+- debugger
+- in
+- class
+- native
+- let
+- super
+- transient
+- void
+- volatile
+- yield
+- protected
+
+## Declaring
+
+For declaration we use the keywords:
+`var` and `let` for variables and `const` for constants
+
+> one of the basic difference between let and var is that let prevent us from declaring another variable with the same name (an error is generated). Using var allows you to re-declare a variable, which can lead to errors in the program execution.
+
+## Initializing variables
+After a declaration, the variable mut be initialized, it should be given its first value. To assign it, we use the operator =
+
+> It is important to enter the first value into the variable before trying to read, modify, or display it.
+
+### Strict mode
+using this statement we force the interpreter to behave according to modern JS standards.
+`use strict` muts be placed at the beginning of the code. with this strict mode using a variable without its previous declaration is treated as an error.
+
+### Changing variable values
+
+> Variable in JS are untyped (dynamically typed). This means that JS will not control what type of value we store in the variable.
+
+## Constants
+Constants are also used to store certain values, but once values have been entered into them during the initialization, they can no longer be modified.
+
+> const type is simultaneously declared and initialized.
+
+```
+const greeting; // --> Uncaught SyntaxError: Missing initializer in const declaration.
+greeting = "Hello!";
+```
+
+> A change in the constant is impossible. Typical examples for const are path to resources, tokens , and other data that never change throughout the lifetime of the script.
+
+## Scope
+
+The scope of a variable depends on where it is declared.
+
+> One of the basic elements that influence the scope of variables is a **program block**
+
+### Program blocks
+we can separate code of a program into blocks (created by curly brackets). Blocks are usually associated with conditional instructions, loops, or functions.
+
+> Indentation increases the readability of the code.
+
+#### The scope of let and var
+if we declare let or var outside the code blocks, they will be **global** meaning their names will be visible throughout the program, outside blocks, inside blocks, in functions, and so on.
+we will be able to refer to them anywhere by their names, and or course have access to their values.
+
+if we declare something using let or const inside a block will create a `local variable` or constant. It will be visible only inside the block in which was declared and in blocks that can optionally be nested in it.
+
+## var
+no matters where it is declared (inside or outside blocks) it will be global.
+
+> Var are sometimes local too. In what situation can we declare a local variable using var? only inside a function.
+
+## functions
+is just a separated piece of code that you name. If you want to use it somewhere, you simply refer to it using that name (call the function).
+
+So, if we declare a variable using the keyword var inside a function its scope will be limited only to the inside of that function.
+
+## Variable shadowing
+it means that we can declare a global variable and a local variable of the same name.
