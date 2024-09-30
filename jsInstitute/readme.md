@@ -60,6 +60,11 @@ The interpreter checks whether we have made any formal errors, for example, maki
 
 The choice of JS interpreter will depend on which platform we write our software. for example, if we want to write a simple server-side app, we will choose **node.js** environment. In case of the client-side, our interpreter will simply be the web browser you already have installed.
 
+| Interpreter functions   |
+|------------------|
+| The JS interpreter scans the program before running it, looking for errors in its syntax|
+|Searches for all variable declarations and moves them to the beginning of the range in which they were declared (to the beginning of the program if they are global, to the beginning of the block if it is a local `let` declaration, or to the beginning of the function if it is a local `var` declaration), all this happens in the interpreter memory, and the changes are not visible in the code.|
+
 ### Debugger
 
 a debugger is a tool that allows you to slow down or even halt the execution of a program, run instructions step by step, and look at and analyze the state of the program at any given moment.
@@ -204,3 +209,25 @@ So, if we declare a variable using the keyword var inside a function its scope w
 
 ## Variable shadowing
 it means that we can declare a global variable and a local variable of the same name.
+In the local scope, in which we declare a local variable using its name, we will have access to the local value (the global variable is hidden behind the local, so we do not have access to it in this local scope)
+**This is not the best programming practice, we should avoid such situations**
+```
+let counter = 200;
+console.log(counter); -> 200
+{
+    let counter = 100;
+    console.log(counter); -> 100
+}
+    console.log(counter); -> 200
+
+```
+Shadowing may not only be concerned with the situation in which a local variable covers a global variable. if nested scopes appear, the local variable declared in a more nested block will overshadow the local variable of the same name declared in the external block.
+
+In most cases, this is not desirable, so try to avoid giving the same name variable names to multiple variables, regardless of where you declare them.
+
+## Hoisting
+
+> all variables **should** be declared before use
+
+Means that variable declaration (not initializations) will be moved by the interpreter to the beginning of the range (depending of the type variable and its scope).
+
