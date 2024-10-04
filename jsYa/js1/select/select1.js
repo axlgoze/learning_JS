@@ -16,3 +16,8 @@ function getPrice(){
     document.getElementById('span2').textContent = optionText;
     document.getElementById('span3').textContent = optionPrice;
 }
+
+
+// function getPrice(){
+//     document.getElementById('price').value = document.getElementById('pizzas-select').option[document.getElementById('pizzas-select').selectedIndex].value;
+// }
