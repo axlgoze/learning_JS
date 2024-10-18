@@ -231,3 +231,360 @@ In most cases, this is not desirable, so try to avoid giving the same name varia
 
 Means that variable declaration (not initializations) will be moved by the interpreter to the beginning of the range (depending of the type variable and its scope).
 
+
+### Data types and type casting
+
+## data types and type conversions
+
+> JavaScript language is weakly typed. it allows you to change the data type stored in one variable.
+
+> Each type of data is connected with certain operations we can perform on it.
+
+In JS data types are divided into:
+
+- **primitive**:
+  - Boolean
+  - Number
+  - BigInt
+  - String
+  - Symbol
+  - undefined
+- **complex**
+
+
+> primitive data types will be atomic, it means that will not be possible to extract components from it. The value is one, indivisible element.
+
+## Literals
+literals are a way of noting (record) specific values (data) in the program code.
+literals represents data.
+
+> Using literals is not the only way to create variables of the given primitive types. The second option is to make them using `constructor` functions.
+
+##### Numeric Literals:
+- Example: `42`, `3.14`, `-7`
+
+##### String Literals:
+- Example: `'Hello'`, `"World"`, `` `Hello, ${name}` `` (template literals)
+
+##### Boolean Literals:
+- Example: `true`, `false`
+
+##### Object Literals:
+- Example: `{ name: 'Juan', age: 30 }`
+
+##### Array Literals:
+- Example: `[1, 2, 3, 4]`, `['apple', 'orange']`
+
+##### Function Literals:
+- Example: `function() { return 'Hello'; }` (though they are usually assigned to variables)
+
+##### Special Literals:
+- `null`: represents the absence of a value.
+- `undefined`: represents a variable that has been declared but does not yet have a value.
+
+
+## The `typeof` operator
+
+> an operator is a symbol or name that represents some action to be performed on the indicated arguments
+
+`typeof`operator is unary ( it only takes one argument) and inform us of the type of data indicated as a given argument. The argument can be either a literal or a variable. The `typeof` operator returns a string with one of the fixed values assigned to each of the types.
+
+```
+console.log(typeof number);           // "number"
+console.log(typeof string);           // "string"
+console.log(typeof booleanTrue);      // "boolean"
+console.log(typeof booleanFalse);     // "boolean"
+console.log(typeof object);           // "object"
+console.log(typeof array);            // "object"
+console.log(typeof func);             // "function"
+console.log(typeof nullValue);        // "object"
+console.log(typeof undefinedValue);   // "undefined"
+```
+
+### Boolean
+Logical data type. can only take on of two values: `true` or `false`. It's mainly used as a conditional expression needed for deciding what part of the code should be executed, or how long something should be repeated (flow statement).
+
+Booleans are also referred as a **flag**, a variable that signals something that can be either present or absent, enabled or disabled, etc.
+
+We can often see that boolean flag names are prefixed with "is", to show the intent of checking this for true/false values.
+
+```
+let isDataValid = true;
+let isStringTooLong = false;
+let isGameOver = true;
+```
+
+### Number
+Main numeric type in JS that represents both real numbers and integers. To ensure correctness of calculations, the integer values should be limited in JS to the range of `-(253 - 1)`to `(253 - 1)`.
+
+> Numbers allow for all typical arithmetic operations. And are represented in decimal form -as default-
+
+If a literal describing a numbers is preceded by an appropriate prefix, we can present it in hexadecimal, octal or binary:
+
+```
+let a = 10,       // Decimal
+let b = 0o10,     // Octal
+let c = 0b10,   // Binary
+let d = 0x10;      // Hexadecimal
+
+console.log(a);        // 10
+console.log(b);          // 8
+console.log(c);         // 2
+console.log(d);    // 16
+
+
+```
+
+we can also write numbers in exponential form:
+
+```
+let largeNumber = 9e3;     // 9000
+let smallNumber = 1.23e-3; // 0.00123
+
+console.log(largeNumber);     // 9000
+console.log(smallNumber);   // 0.00123
+```
+
+#### Three additional special values:
+
+`Infinity`
+`-Infinity`
+`NaN`: It is more a notification that some arithmetic action (or mathematical function) could not be performed because the argument is either not a number, or cannot be converted to a number.
+
+```
+let a = 1/0
+console.log(a) --> infinity
+```
+
+### BigInt
+this type is not used often. It allows to write integers of virtually any length. We can use mathematical operations in the same way as on Numbers, but there is a difference when dividing.
+
+The division result will always rounded to the nearest whole number. Also you cannot use another types in arithmetic operations on BigInts (this will generate an error).
+
+BigInt does not have its own equivalent of `Infinity` or `NaN`, such actions will generate an error.
+
+BigIn literals are numbers with the **n** suffix.
+
+```
+let big = 12345553459345934285348584n;
+
+console.log(7n / 4n); --> 1n
+```
+
+### String
+This type represents a sequence of characters forming a piece of text. Common operations on text include concatenation, extraction of the substring, and checking the length of the string. Strings are extensively used in programming and even more in web development, as both HTML and a big part of Internet content is text.
+
+The most common use of text in web development includes:
+- links and paths to resources;
+- tokens;
+- checking user-filled forms and input
+- dynamic content generation
+
+String, like other primitives,, are immutable, so when we want to change even one letter, we create a new string.
+
+String literals can be created using single or double quotes.
+
+you can place single quotes inside the string, and they will be treated as ordinary characters, this will also work in the opposite situation.
+
+```
+let message1 = "The vessel 'Mars' called at the port"
+let message2 = 'Cyclone "Cilidia" to pass close to Mauritius'
+```
+
+If  you want to put a single or double quote inside the string, you can also use the escape character - backslash. A quote mark preceded by the \ will be interpreted as ordinary characters that are part of our string.
+
+```
+let message1 = "The vessel \"Mars\" called at the port"
+let message2 = 'Cyclone \'Cilidia\' to pass close to Mauritius'
+```
+
+Performing arithmetic operations (Multiplication, Division, or Subtraction) on String values, will usually end in an error (NaN).
+
+The js Interpreter seeing the operators `-`, `*`, or `/` tries to interpreter the given values as numbers, or convert them into numbers. **So if the characters strings consists of digits, the automatic conversion will be successful and we will return the result of the arithmetic as a Number type value**. If the character string cannot be interpreted (and converted) we will get the NaN result.
+
+```
+let path = "C:\\" + "Windows";
+console.log(path) --> C:\windows
+
+let path = "C:\\" - "Windows";
+console.log(path) --> NaN
+
+let test = "100" - "10";
+console.log(test) --> 90
+console.log(typeof test) --> number
+```
+
+#### String interpolation ${}
+Allows you to treat a character string as a template, in which you can place values in selected places, such as those taken from variables.
+
+Use backticks when interpolation.
+
+```
+let country = "Malawi"
+let continent = "Africa"
+
+let sentence = `${country} is located in ${continent}.`;
+console.log(Sentence); --> Malawi is located in Africa
+```
+
+### method
+is a special kind of function that belongs to an object.
+
+### Objects
+are complex data types, which can consist of many values (Stored in properties) and methods. If you want to call the method of an object, you write the name of the method after a dot.
+
+```
+console.log()
+console.time()
+console.timeEnd()
+```
+
+### autoboxing
+All data of primitive types such as Number, BigInt, Boolean or String have corresponding objects to which they can be converted.
+
+Each of these objects will have methods designed for a specific data type. So, if a dot appears after a literal representing a primitive type, or after a variable containing this type of data, the JS interpreter tries to treat this value as an object and not a primitive.
+
+```
+let river = "Mekong";
+let character = river.charAt(2);
+console.log(character) --> k
+```
+
+After the operation is completed, the interpreter removes the temporary object. So from our point of view, it looks like we just called a method on a given primitive type.
+
+Commonly used string methods and properties:
+- length: property, returns the number of characters in a string.
+- charAt(index): method, returns the character at the index position
+- slice(beginIndex, [optional] endIndex): method, returns a new string that is created form the characters between the arguments. endIndex (excluded).
+- split(separator, [optional] limit): method, splits the string into substrings whenever the separator is found in a string, and returns an array of those substrings.
+
+
+### undefined
+The `undefined` value it's the default value that all variables have after a declaration if no value is assigned to them.
+You can also assign the undefined value to any variable, but should be avoided, because if we nee to mark a variable as not holding any meaningful value, we should use `null`.
+
+### Symbol
+Coming soon.
+
+### null
+It's used to indicate that the variable does not contain anything, and most often it is a variable that is intended to contain values of complex types.
+we can assume that the `undefined` value is assigned to uninitialized variables automatically, but if we want to explicitly indicate that the variable does not contain anything, we assign it a `null` value.
+
+> typeof null -> object
+
+
+## Type conversions
+We can use `constructor`functions to create primitives, not just objects, the following functions will return primitives of a given type:
+- `Boolean`
+- `Number`
+- `BigInt`
+- `String`
+
+Most of these functions can be called without any arguments. In such situation:
+
+- `Boolean` will be default create and return the value of false.
+- `Number` will be default create and return the value of 0.
+- `String` will be default create and return an empty string - primitive "";
+
+The BigInt requires you to pass some initial value to it. Otherwise and error will be returned.
+
+```
+const str = String();
+const num = Number();
+const bool = Boolean();
+
+console.log(str); -->
+console.log(num); --> 0
+console.log(bool); --> false
+
+const big1 = BigInt(42);
+console.log(big1); --> 42n
+
+```
+
+### Conversions
+Conversions in JS happen automatically in specific situations, but can also be used explicitly through functions like `String()` or `Number()`. These functions also accept arguments in parentheses and (if possible) wil convert them to a given type.
+
+```
+const num = 42;
+
+const strFromNum1 = String(num); --> "42"
+const strFromNum2 = String(8); --> "8"
+const strFromNum1 = String(true); --> "true"
+const strFromNum1 = Number("132"); --> 132
+const strFromNum1 = Boolean(0); --> false
+```
+
+### Conversion to String
+The easiest to understand, as they try to directly change the value to a string, and **this can be done for all primitive types.**
+
+### Conversion to Number
+```
+console.log(Number("0x11")); // --> 17
+console.log(Number("12e3")); // --> 12000
+console.log(Number("Infinity")); // --> Infinity
+console.log(Number("text")); // --> NaN
+console.log(Number(14n)); // --> 14
+console.log(Number(12345677655345n)); // --> 12345677655345
+console.log(Number(undefined)); // --> NaN
+console.log(Number(null)); // --> 0
+```
+
+### Conversion to Boolean
+
+The value `false`is always returned for:
+
+- 0
+- NaN
+- empty string
+- undefined
+- null
+
+```
+console.log(Boolean(0)); // --> false
+console.log(Boolean(NaN)); // --> false
+console.log(Boolean("")); // --> false
+console.log(Boolean(undefined)); // --> false
+console.log(Boolean(null)); // --> false
+```
+
+### Conversion to BigInt
+We require a Number or String representing a number as value to be converted. Values for conversion can be given in the default decimal form, as well hexadecimal, octal or binary form.
+we can use exponential notation, but only for number arguments.
+Unlike other conversions BigInt will thrown an error, and will stop the program when unable to convert a given value.
+
+```
+console.log(BigInt(11)); // --> 11n
+console.log(BigInt(0x11)); // -->  17n
+console.log(BigInt(11e2)); // --> 1100n
+
+console.log(BigInt(true)); // --> 1n
+
+console.log(BigInt("11")); // --> 11n
+console.log(BigInt("0x11")); // --> 17n
+
+console.log(BigInt(null)); // --> TypeError
+console.log(BigInt(undefined)); // --> TypeError
+console.log(BigInt(NaN)); // --> RangeError not integer
+```
+
+### Implicit Conversions
+Conversions can also happen automatically, and they happen all the time.
+
+```
+ const str1 = 42 + "1";
+ console.log(str1); // --> 421
+ console.log(typeof str1); // --> String
+
+const str2 = 42 - "1";
+console.log(str2); // --> 41
+console.log(typeof str2); // --> number
+
+
+```
+
+> null = false = 0
+> true = 1
+> null = NaN
+> undefined = NaN
+
