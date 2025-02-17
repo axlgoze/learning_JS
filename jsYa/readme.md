@@ -171,3 +171,24 @@ It has a unique name and we refer to its elements by a subindex.
     indexOf() --> returns the position of the substring , -1 if does not exist
     toUpperCase() --> convert characters to upper case
     toLowerCase() --> convert characters to lower case
+
+
+## Arrays
+
+there are different ways to create an array.
+
+```
+let vector = new Array();
+```
+
+```
+let vector = [];
+```
+
+```
+let vector = new Array(5);
+```
+
+```
+let vector = new Array(1,3,'axl');
+```

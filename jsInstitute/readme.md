@@ -588,3 +588,89 @@ console.log(typeof str2); // --> number
 > null = NaN
 > undefined = NaN
 
+## DATA TYPES and TYPE CASTING
+
+### Complex data types
+
+#### Object
+Objects are usually used it as a structure known in computer science as a record.
+
+**record** is a collection of named fields (key-value pairs). In JS these fields are usually called properties.
+
+records (objects) allow you to store multiple values of different types in one place.
+
+The easiest way to create an object is using the curly bracket literal.
+
+```
+let myObject = {}
+console.log(typeof myObject); // --> object
+```
+
+Properties are separated by commas. A specific property can later be referred to with dot notation. This notation requires the name of the object ( a literal name ot the name of a variable containing the object) to be followed by a dot, followed by the field name.
+
+```
+console.log(yourObject.prop1); // --> 600
+console.log(yourObject.prop2); // --> "text"
+```
+
+> The properties of an object, are made available with a dot and key name.
+
+we can create, modify and delete properties.
+```
+console.log(user.name); // --> Axel
+
+console.log(user.age); // --> 60
+user.age = 70;
+console.log(user.age); // --> 70
+
+console.log(user.phone); // --> undefined
+user.phone = "12345678";
+console.log(user.phone); // --> 12345678
+delete user.phone;
+console.log(user.phone); // --> undefined
+
+```
+
+#### Array
+
+This structure only stores values of any type, without any key associated.
+
+> The elements of an Array are ordered (but not necessarily sorted) and take up consecutive, numbered positions inside it.
+
+The number of the field where a particular value in the array is located is called an index or a position. The index stars from 0.
+
+The easiest way to create an array in JS is to use the array literal (square brackets). The elements will be inserted later (which will be separated by commas).
+
+Referring to a particular array element, we use bracket notation, after the name of the array variable.
+
+```
+let days = ["Mon","Tue","Wed","Thu","Fri"];
+console.log(days[0]); // --> Mon
+console.log(days[1]); // --> Tue
+console.log(days[2]); // --> Wed
+console.log(days[3]); // --> Thu
+console.log(days[4]); // --> Fri
+
+days[5]="Sat";
+console.log(days[5]); // --> Sat
+
+let emptyArray = []
+console.log(emptyArray[0]); // --> undefined
+```
+
+How we can add a new element to an existing array?
+
+The easiest way would be to assign a nre value to a specific position using bracket notation.
+
+> For the interpreter, it does not matter if there is already something in this index or not. Just places a new value in there.
+
+```
+let animals = [];
+
+animals[0] = "Gorilla"
+animals[2] = "Cat-Dog"
+
+console.log(days[0]); // --> Gorilla
+console.log(days[1]); // --> undefined
+console.log(days[2]); // --> Cat-Dog
+```
