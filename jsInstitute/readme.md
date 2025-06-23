@@ -47,7 +47,7 @@ here are some online development environment (known as playground) used as train
 
 Depending on the level of sophistication, the complexity of the project, or environment for which we write our programs (client-side, server-side, mobile), other tools may also be good:
 
-- package managers -> enabling the management of libraries (containing ready-made solutions that we can use in our programs) or components of the development environment (e.g npm oor yarn).
+- package managers -> enabling the management of libraries (containing ready-made solutions that we can use in our programs) or components of the development environment (e.g npm or yarn).
 - task runners and module bundlers -> to automate the process of sw development and merge the resulting code from many files and libraries.
 - testing frameworks -> allows for automatic testing of the correctness of our program in search of potential errors (e.g. mocha, jasmine or jets)
 - security analyzers -> used to control the security of our solution (e.g. snyk, RetireJS or OWASP Dependency check)
@@ -380,7 +380,7 @@ The most common use of text in web development includes:
 - checking user-filled forms and input
 - dynamic content generation
 
-String, like other primitives,, are immutable, so when we want to change even one letter, we create a new string.
+String, like other primitives, are immutable, so when we want to change even one letter, we create a new string.
 
 String literals can be created using single or double quotes.
 
@@ -660,7 +660,7 @@ console.log(emptyArray[0]); // --> undefined
 
 How we can add a new element to an existing array?
 
-The easiest way would be to assign a nre value to a specific position using bracket notation.
+The easiest way would be to assign a new value to a specific position using bracket notation.
 
 > For the interpreter, it does not matter if there is already something in this index or not. Just places a new value in there.
 
@@ -674,3 +674,128 @@ console.log(days[0]); // --> Gorilla
 console.log(days[1]); // --> undefined
 console.log(days[2]); // --> Cat-Dog
 ```
+
+The array can contains different data types, also Arrays
+
+let arr = [['hello',123,false],['bye',32.12,true]];
+
+we can access to the elements of this nested array using multiple square brackets.
+
+console.log(arr[0][1]) => 123
+console.log(arr[0]) => ['hello',123,false]
+console.log(arr[1][1]) => 32.12
+
+> Note that the internal arrays do not have to be the same length.
+
+### What can arrays be useful for in practice ?
+
+let users = [
+              {
+                name: 'axel',
+                surname: 'Reyes',
+                age: 30,
+                email: 'axrey@gmail.com'
+              },
+              {
+                name: 'brayan',
+                surname: 'Flores',
+                age: 31,
+                email: 'baflor@gmail.com'
+              }
+            ]
+
+console.log(users[0].name) => axel
+console.log(users[1].email) => baflor@gmail.com
+
+we can add a new user
+
+users[2] =    {
+                name: 'brayan',
+                surname: 'Flores',
+                age: 31,
+                email: 'baflor@gmail.com'
+              }
+
+
+you can use the `instanceOf` operator to be sure that a variable contains an Array
+```
+console.log(arr instanceOf Array) --> true/false
+```
+`instanceOf` operator is a two-argument operator which requires the tested variable (or literal) and object class to be specified.
+
+Arrays as objects has methods and properties.
+
+- length
+
+property to get information about the length ( the number of elements) of the array (including empty positions between existing elements).
+
+- indexOf
+
+method used to search the array to locate a given value. If the value is found will return its position(index). the method returns -1 if is not found.
+
+- push
+
+method that places the element given as its argument at the end of the array.
+
+- unshift
+
+method that adds an element to the beginning of the array.
+
+- pop
+
+methods that allows you to remove the las element from the array.
+
+- shift
+
+method that removes an element from the beginning.
+
+- reverse
+
+method reverses the order of elements in the array.
+
+- slice
+
+method that allows you to create a new array from selected elements. It takes either on or two integer values as arguments.
+
+```
+arr.slice(1);  --> all elements from the index given are copied.
+arr.slice(1,9); --> copy from the index to the element specified as second argument.
+arr.slice(1,-9); --> all elements from the index given are copied. Except for the specified number of the las elements.
+arr.slice(-1); --> The specified number of the last elements are copied to the end of the array.
+```
+
+- concat
+
+method that creates a new array by attaching elements from the array given as an argument to the original array elements.
+
+```
+let allNames = arr1.concat(arr2);
+```
+
+> autoboxing: automatic conversion of a primitive to an object related to that object.
+> Objects are used as records.****
+
+#### Comments
+
+comments are just plain text, totally ignored by javascript interpreter, that usually serve to explain a certain piece of code, which for some reasons may be not be fully legible. we have two types: single line and multiple-line (block comment).
+
+```
+// single line comment
+
+
+/*
+  multi
+  line
+  comment
+*/
+```
+
+uses of comments:
+- to give an explanation in complex code.
+- situations where the code behaves differently than expected and you need to show that it is intentional.
+- Documentation
+we can use comments to document code. There are tools that can automatically generate documentacion from comments. like JSDoc.
+- code Toggle: to check some options quickly
+
+
+# MODULE 3

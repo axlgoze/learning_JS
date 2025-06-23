@@ -1,0 +1,21 @@
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    height: 90vh;
+}
+
+.item{
+    background-color: #42899b;
+    border: 1px solid #ffffff;
+    padding: 1rem;
+    font-family: arial;
+    color: white;
+    text-align: center;
+    align-content: center;
+    cursor: pointer;
+}
+
+.item:hover{
+    background-color: burlywood;
+}

@@ -1,0 +1,10 @@
+let oracion = 'saliendo de la casa que esta en la montaña';
+        let patron1 = /la/;
+        let vector1 = patron1.exec(oracion);
+        document.write(vector1.index);
+        document.write('<br>');
+        document.write(vector1.input);
+        document.write('<br>');
+        let patron2 = /lax/;
+        let vector2 = patron2.exec(oracion);
+        document.write(vector2);

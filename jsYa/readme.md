@@ -16,6 +16,27 @@ se lee como "Y", se emplea cuando una estructura condicional dispone de dos cond
 ## Operator or ||
 If condition one is true or condition 2 is true, then execute the true branch
 
+## Operator ==
+converts first the same data type and compare
+
+## Operator ===
+Compare without conversions (strict equality)
+
+## Operator !=
+converts first the same data type and compare. If not same returns true
+
+## Operator !==
+Compare without conversions (strict equality). If not same returns true
+
+  if (true==1)  //true
+
+  if (true===1)  //false
+
+  if (false==0)  //true
+
+  if (false===0)  //false
+
+
 ## Switch structure
 alternative to replace if structures
 
@@ -192,3 +213,52 @@ let vector = new Array(5);
 ```
 let vector = new Array(1,3,'axl');
 ```
+
+
+
+## forms
+
+### events
+
+preventDefault()
+Is used to prevent the normal behavior.
+
+
+### Regular expressions
+
+RegExp object help us to recognize patterns in strings that we need.
+
+regex characters:
+
+^ 👉 the beginning of string
+$ 👉 the end of string
+
+### quantifiers
+* 👉 
++ ?
+
+* =! : | \ / () [] {}
+
+. 👉 matches any type of character except new line
+
+
+pattern of meta characters:
+```
+/[\^$.*+?=!:|\\/()\[\]{}]/
+```
+
+modifiers
+
+i: capital letters and low case
+g: *
+m: multiline
+
+### Spread operator and Rest operator
+
+spread (copy or combine)
+expands elements of an array
+
+rest (inside a function)
+group arguments in one array
+rest parameters cannot have a default value
+rest can receive other parameters declared before the rest operator
