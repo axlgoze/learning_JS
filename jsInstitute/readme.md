@@ -884,3 +884,66 @@ console.log(`${n2} : ${typeof n2}`); // -> -123 : number
 console.log(`${n3} : ${typeof n3}`); // -> 123 : number
 console.log(`${n4} : ${typeof n4}`); // -> NaN : number
 ```
+
+##### Unary increment and decrement operators
+
+The **posfix** version  (post increment) performs the operation by changing the value of the varaible, but returns the value before the change.
+
+```js
+console.log(n1++);
+```
+
+is interpreted as:
+
+```js
+console.log(n1);
+n1 = n1 + 1;
+```
+
+The **sufix** version (pre increment) performs the operation and returns the new value.
+
+```js
+console.log(++n1);
+```
+
+is interpreted as:
+
+```js
+n1 = n1 + 1;
+console.log(n1);
+```
+
+| Expression | When the increment happens | Returned value                         |
+|------------|----------------------------|----------------------------------------|
+| `a++`      | After                      | Original value (before increment)      |
+| `++a`      | Before                     | New value (after increment)            |
+
+##### Compound Assignment Operators
+
+Bynari arithmetic operators can be combined with the assigment operator
+
+`+=`
+`-=`
+`*=`
+`/=`
+`%=`
+`**=`
+
+each of these takes the left value and modifies performing an arithmetic operation using the right operand value.
+
+```js
+let x = 10;
+
+x += 2;
+console.log(x); // -> 12
+x -= 4;
+console.log(x); // -> 8
+x *= 3;
+console.log(x); // -> 24
+x /= 6;
+console.log(x); // -> 4
+x **= 3;
+console.log(x); // -> 64
+x %= 10;
+console.log(x); // -> 4
+```
