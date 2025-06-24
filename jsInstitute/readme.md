@@ -799,3 +799,88 @@ we can use comments to document code. There are tools that can automatically gen
 
 
 # MODULE 3
+
+### Assignment, arithmetic, and logical operators
+
+operators are symbols used to perform certain actions to arguments (called operands).
+
+operator can be both values and variables.
+
+operators can be categorized in several ways:
+
+unary (one operand)
+binary (two operands)
+ternary (three operands)
+
+prefix operators (occurring before the operand)
+postfix  operators (occurring after the operand)
+infix operators (between operands)
+
+by context:
+
+- Assigment
+- Arithmetic
+- Logical
+- Conditional
+
+#### Assigment Operators
+
+Operators that allows for the assigning of values and variables and constants.
+
+```javascript
+
+let a = 100;
+
+```
+
+the equal operand assigns the value of the right operand to the left operand.
+If several assignment operators appear in a sequence, the order from right to left applies.
+
+```javascript
+let year = 2050;
+let newYear = year = 2051;
+```
+
+#### Arithmetic Operators
+
+Express mathematical operations.
+
+All arithmetic operators (Except addition) will try to implicity convert values to the Number type before performing the operation.
+
+The adding operator will convert everything to a String if any of the operands is a String type, otherwise it will convert them to a Number like the rest arithmetic operators.
+
+In general, it is a good habit to use parentheses to force the precedence and order of operations, not just arithmetic.
+
+```javascript
+const x = 5;
+const y = 2;
+
+console.log("addition: ", x + y); // -> 7
+console.log("subtraction: ", x - y); // -> 3
+console.log("multiplication: ", x * y); // -> 10
+console.log("division: ", x / y); // -> 2.5
+console.log("division remainder :", x % y); // -> 1
+console.log("exponent: ", x ** y); // -> 25
+```
+
+##### UNARY Arithmetic Operator
+
+unary means operating on a single operand.
+
+Among them there are the plus + and minus - operators.
+
+Both operators convert operands to the Number type, while the minus operator additionally negates it.
+
+```javascript
+let str = "123";
+let n1 = +str;
+let n2 = -str;
+let n3 = -n2;
+let n4 = +"abcd";
+
+console.log(`${str} : ${typeof str}`); // -> 123 : string
+console.log(`${n1} : ${typeof n1}`); // -> 123 : number
+console.log(`${n2} : ${typeof n2}`); // -> -123 : number
+console.log(`${n3} : ${typeof n3}`); // -> 123 : number
+console.log(`${n4} : ${typeof n4}`); // -> NaN : number
+```
