@@ -54,3 +54,42 @@ The increment operator (++) adds 1 from the operand.
 If it is placed after the operand, it returns the value before the increment.
 
 If it is placed before the operand, it returns the value after the increment.
+
+### Assigment
+
+`=`
+
+`+=`
+
+`-=`
+
+```js
+a -= b = a equal a - b
+```
+
+`*=`
+`/=`
+`%=`
+
+### Comparison operators
+
+`==`
+compares onlye values
+
+`===`
+compares value and data types
+
+`<=`
+
+`>=`
+
+`!=`
+
+
+### alert, prompt and confirm
+
+**Confirm** will show a message of confirmation before send some data (e.g forms)
+
+```js
+confirm('sure to confirm?');
+```

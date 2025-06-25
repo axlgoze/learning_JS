@@ -954,3 +954,79 @@ in resume assigment operators do
 x = x + n
 x += n
 ```
+
+##### Logical operators
+
+1. Conjunction
+`logical AND => &&`
+2. Alternative
+`logical OR => ||`
+3. Negation
+`logical NOT => !`
+
+Negation changes the logical value of the operand to its opposite.
+
+##### Logical operators and non-Boolean values
+
+NOT operator will convert temporaly to a Boolean value and onlye then is treated with the appropieate operator action.
+Always return true or false.
+
+> Double negation is used to convert any type to Boolean
+
+```js
+let nr = 0;
+let name = "Alice";
+
+console.log(!nr); // -> true
+
+console.log(!!nr); // -> false
+console.log(!!name); // -> true
+```
+
+Evaluation is simply an attempt to convert an operand to a Boolean-type value.
+
+The AND operator will return the first operand if it evaluates to false, and the second operand otherwise. The OR operator will return its first operand if it evaluates to true, and the second operand otherwise. Evaluation 
+
+```js
+console.log(true && 1991); // -> 1991
+console.log(false && 1991); // -> false
+console.log(2 && 5); // -> 5
+console.log(0 && 5); // -> 0
+console.log("Alice" && "Bob"); // -> Bob
+console.log("" && "Bob"); // -> empty string
+
+
+console.log(true || 1991); // -> true
+console.log(false || 1991); // -> 1991
+console.log(2 || 5); // -> 2
+console.log(0 || 5); // -> 5
+console.log("Alice" || "Bob"); // -> Alice
+console.log("" || "Bob"); // -> Bob
+
+```
+
+> Empty string = false
+
+Both operators also use short-circuit evaluation. Means will return the fisrt operand evaluation and no other check will be performed.
+
+```js
+let x = 0;
+let y = 0;
+console.log(x++ && y++); // -> 0
+console.log(x); // -> 1
+console.log(y); // -> y == 0
+```
+
+binary logical operators can be used in combination with the assignment operator, creating a logical `AND` assignment ``&&=`` and a logical ``OR`` assignment ``||=``.
+
+```js
+let a = true;
+console.log(a); // -> true
+a &&= false;
+console.log(a); // -> false
+```
+
+The instruction a ``&&= false`` means exactly the same as ``a = a && false``
+
+
+continue module 3 section 2
