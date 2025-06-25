@@ -947,3 +947,10 @@ console.log(x); // -> 64
 x %= 10;
 console.log(x); // -> 4
 ```
+
+in resume assigment operators do
+
+```js
+x = x + n
+x += n
+```
