@@ -1028,5 +1028,143 @@ console.log(a); // -> false
 
 The instruction a ``&&= false`` means exactly the same as ``a = a && false``
 
+#### String, comparison, and other JS operators
 
-continue module 3 section 2
+##### String operator
+
+Concatenation ``+``
+
+converts everything to a string if any operadns is string type
+
+```js
+let sentence = "Happy New Year ";
+let newSentence = sentence + 10191;
+
+console.log(newSentence); // -> Happy New Year 10191
+console.log(typeof newSentence); // -> string
+```
+
+##### Compound Assignment Operators
+
+
+```js
+let sentence = "Happy New ";
+sentence += "Year ";
+sentence += "s"
+```
+
+
+##### Comparison operators
+
+Comparison operators are used to check the equality or inequality of values. All comparison operators are binary, and all of them return a logical value representing the result of the comparison, true or false.
+
+
+
+You can also use them to compare strings that do not represent numbers, but the algorithm of this comparison is quite complex, and the comparison itself is not very useful. By way of simplification, single characters of both strings are tested on the same positions. It is assumed that the values of the single characters correspond to their positions in the alphabet (the letter b has a higher value than the letter a). Upper-case letters have lower values than lower-case letters, and digits have even lower values.
+
+```js
+console.log("b" > "a"); // -> true
+console.log("a" > "B"); // -> true
+console.log("B" > "A"); // -> true
+console.log("A" > "4"); // -> true
+console.log("4" > "1"); // -> true
+
+console.log("ab1" < "ab4"); // -> true
+console.log("ab4" < "abA"); // -> true
+console.log("abB" < "aba"); // -> true
+console.log("aba" < "abb"); // -> true
+
+console.log("ab" < "ab4"); // -> true
+```
+
+
+##### other operators
+
+1. typeof:  
+    It is a unary operator, which checks the type of operand (it can be a variable or a literal). 
+2. isntanceOf:
+   It is a binary operator that checks whether an object (left operand) is of some type (right operand). 
+3. delete:
+  unary operator allows you to delete a selected field of the object whose name is indicated with an operand.
+4. ternary:
+   it is the only operator using three operands. It is a conditional operator. Based on the value of the first operand (true or false), the value of the second or third operand, respectively, is returned.
+
+#### Precedence
+
+The JavaScript interpreter uses two operator properties to determine the sequence of operations: precedence and associativity. Precedence can be treated as a priority, with some operators having the same precedence (e.g. addition and subtraction). Associativity allows you to specify the order of execution if there are several operators with the same priorities next to each other.
+
+Precedence can be presented as a numerical value – the higher the value, the higher the priority of the operation. If, for example, an OP1 operator has a smaller precedence than OP2, then the instruction:
+
+a OP1 b OP2 c
+
+will be executed as follows: first, OP2 will be executed on operands b and c, then OP1 will be executed on the left operand a and the right operand, resulting from OP2. So the instruction could be presented in the form:
+
+a OP1 ( b OP2 c)
+
+If we perform the same operations (or different operations but with the same precedence), the interpreter uses associativity to determine the order of operations. Operators may have a specified left-associativity (left to right order) or right-associativity (right to left order). Let's assume that in our example, the operator OP1 has left-associativity:
+
+a OP1 b OP2 c
+
+In such a situation, the OP1 operation on operands a and b will be performed first, followed by a second OP1 operation on the received result and operand c. Bearing in mind that we are dealing with left-associativity, we could write the instruction in the following form:
+
+(a OP1 b) OP2 c
+
+It follows that it would be appropriate to know not only the precedence of all operators, but also their associativity. This may seem a bit overwhelming, taking into account the number of operators. Fortunately, it is usually enough to know the properties of the most basic operators and use brackets in doubtful situations. The brackets allow you to impose the order of operations, just like in mathematics. Keep this in mind when viewing the table below. It contains a list of operators we already know with their precedence and associativity, so it is quite large. You absolutely do not have to remember everything if you can use brackets to group operations.
+
+<!-- JavaScript Essentials 1 (JSE):
+Module 3
+Section 3
+
+Interacting with the user
+
+Topics in this section:
+
+    How to interact with the user in JavaScript?
+    Dialog boxes – alert
+    Dialog boxes – confirm
+    Dialog boxes – prompt -->
+
+
+##### Interaction with the user
+
+The user enters data, make choices and confirm options given by the program. The user influences not only the data, but also its execution.
+
+#### Confirm dialog box
+
+The values true or false, returned by the confirm method as a result of the user's decision, allow for conditional execution of some program actions. In the example below, we have additionally used a recently learned conditional operator:
+
+```JS
+
+let remove = confirm("Remove all data?");
+let message = remove ? "Deleting Data" : "Cancelled"
+
+console.log(message);
+```
+
+#### prompt dialog box 
+
+
+```js
+let name = window.prompt("What is your name?", "John Doe");
+name = name ? name : "anonymous";
+
+let age = prompt("Hello " + name + " how old are you?");
+alert(name + " is " + age + " years old");
+```
+<!-- module 4 -->
+
+<!-- Module 4
+Section 1
+
+Conditional execution
+
+Topics in this section:
+
+    What is conditional execution?
+    The if statement
+    The if–else statement
+    The if–else–if statement
+    The conditional operator
+    The switch–case statement -->
+
+
