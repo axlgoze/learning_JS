@@ -1077,13 +1077,12 @@ console.log("aba" < "abb"); // -> true
 console.log("ab" < "ab4"); // -> true
 ```
 
-
 ##### other operators
 
 1. typeof:  
-    It is a unary operator, which checks the type of operand (it can be a variable or a literal). 
+    It is a unary operator, which checks the type of operand (it can be a variable or a literal).
 2. isntanceOf:
-   It is a binary operator that checks whether an object (left operand) is of some type (right operand). 
+   It is a binary operator that checks whether an object (left operand) is of some type (right operand).
 3. delete:
   unary operator allows you to delete a selected field of the object whose name is indicated with an operand.
 4. ternary:
@@ -1167,4 +1166,98 @@ Topics in this section:
     The conditional operator
     The switch–case statement -->
 
+### Conditional execution (control flow)
 
+#### The if statement
+
+It checks a given condition, and depending of tis boolean value, either executes a block of code, or skips it.
+
+```js
+if (condition) {
+    block of code
+}
+```
+
+The if keyword needs to be followed by the expression in parentheses, which will be evaluated to the Boolean, and if the result is true, the block of code that follows the conditional expression is executed. If the expression evaluates to false, the block of code will NOT be executed. The code block should be separated using curly brackets.
+
+```js
+let userAge = 23;
+let isFemale = false;
+let points = 703;
+let cartValue = 299;
+let shippingCost = 9.99;
+
+if (userAge > 21) {
+    if (cartValue >= 300 || points >= 500) {
+        shippingCost = 0;
+    }
+}
+
+console.log(shippingCost);
+```
+
+Another way to write the same thing is to use the logical AND operator. We used additional parentheses to group the selected logical operations. This will allow us to force their execution precedence.
+
+```js
+if (userAge > 21 && (cartValue >= 300 || points >= 500))
+```
+
+#### The if ... else statement
+
+but what if we also want to execute some code when a given condition is not met?  We can use an `else` keyword.
+
+The `else` keyword is optional. allows to add a second block code only when the initial condition is NOT met.
+
+```js
+if (condition) {
+  condition - true code
+} else {
+  condition - false code
+}
+```
+
+we can do this with multiple if else statements
+```js
+let number = prompt("Enter a number", 0);
+
+if (number < 10) {
+    alert("<10");
+} else if (number < 30) {
+    alert("<30");
+} else if (number < 60) {
+    alert("<60");
+} else if (number < 90) {
+    alert("<90");
+} else if (number < 100) {
+    alert("<100");
+} else if (number == 100) {
+    alert("100")
+} else {
+    alert(">100")
+}
+```
+
+#### Conditional operator
+
+it allows to perform one of two actions based on the value of the first operand.
+
+Most often it is used as an alternative to the if ... else statement.
+
+#### The swtich ... case statement
+
+```js
+switch (expression) {
+    case first_match:
+        code
+        break;
+    case second_match:
+        code
+        break;
+    default:  
+        code
+}
+```
+
+`break` at the end of each block of code is optionall. Additionally there is a special case named default
+
+Additionally, a special case named default can be present (by convention placed on the end of the switch statement; however, it isn’t required). The default case is executed when none of the cases matches the expression. The evaluation itself is made with a strict comparison operator (===) so not only must the value match, but also the type of case value and the expression.

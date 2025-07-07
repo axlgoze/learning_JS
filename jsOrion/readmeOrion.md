@@ -93,3 +93,46 @@ compares value and data types
 ```js
 confirm('sure to confirm?');
 ```
+
+
+returns the execution time of the script
+```js
+console.time();
+// instructions
+console.timeEnd();
+// show warning message
+console.warn('warning');
+```
+
+
+### for cycle
+
+```js
+    // -----when iterations times is knwon (4)
+for(let i=0;i<4;i++){
+    console.log("Looping!");
+}
+// -----when iterations times is not knwon (n)
+for(let i=0;i<z.length;i++){
+    console.log("Looping!");
+}
+```
+
+### while cycle
+
+```js
+//useful to loop through arrays.
+let i=0;
+
+while(i >= 100){
+    console.warning('Hello mundo mundial');
+    i++;
+}
+
+```
+
+```js
+
+```
+
+
