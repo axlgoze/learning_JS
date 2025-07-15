@@ -1261,3 +1261,8 @@ switch (expression) {
 `break` at the end of each block of code is optionall. Additionally there is a special case named default
 
 Additionally, a special case named default can be present (by convention placed on the end of the switch statement; however, it isn’t required). The default case is executed when none of the cases matches the expression. The evaluation itself is made with a strict comparison operator (===) so not only must the value match, but also the type of case value and the expression.
+
+
+
+
+    numberInputTwo != NaN && numberInput != NaN && 

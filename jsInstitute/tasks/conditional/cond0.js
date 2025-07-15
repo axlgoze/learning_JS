@@ -13,4 +13,5 @@ let input = Number(prompt("Enter a number: ",0));
 
 // Rewrite the code from the previous task, replacing if with a ternary conditional operator.
 
-input > 90 && input > 110 ? alert("Bingo !") : alert("Miss");
+input > 90 && input < 110 ? alert("Bingo !") : alert("Miss");
+
