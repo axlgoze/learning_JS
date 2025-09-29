@@ -1262,7 +1262,226 @@ switch (expression) {
 
 Additionally, a special case named default can be present (by convention placed on the end of the switch statement; however, it isn’t required). The default case is executed when none of the cases matches the expression. The evaluation itself is made with a strict comparison operator (===) so not only must the value match, but also the type of case value and the expression.
 
+# MODULE 4 section 2
+
+### What are loops? 
+
+loops are the second form of flow control statement and there are a few types of loops in JS
+
+1. loops that are repetead a given number of times.
+2. loops that are repetead until some condition is met.
+
+### While loop
+
+> loops allows us to execute a selected piece of code multiple times.
+
+we normally use the while loop when we don't know exactly how many times something should be repeated, but we do know when to stop.
+
+```js
+while(condition) {
+    block of code
+}
+```
+
+```js
+let isOver = false;
+let counter = 1;
+
+while (!isOver) {
+    isOver = !confirm(`[${counter++}] Continue the loop?`);
+}
+```
+
+### The do … while loop
+
+In this loop the condition is checked after each iteration. Code is always executed at least once before the first condition check is done.
+
+```js
+do {
+    code block
+} while(condition);
+```
+
+### The for loop
+
+```js
+for (initialization; condition; increment) {
+    block of code
+}
+```
+
+The inside of the parentheses is divided into three fields by semicolons, and each field is assigned a different meaning. In each of these fields, a statement may appear, which will be interpreted as follows in the order:
+
+    - loop Counter initialization statement;
+    - loop condition statement;
+    - loop increment statement.
+
+All three statements are optional and can be left empty, except for ending with a semicolon.
+
+#### the loop condition statement
+
+If this expression is evaluated to true, the loop will execute its code. In the case of the condition being evaluated to false, the loop is terminated, and no more iterations will be executed, and the code execution jumps to the first statement after this for loop. The condition statement is also optional, but if left empty, it will be assumed as always true, leading to an infinite loop if no other means of exiting the loop is used.
+
+#### for … of
+is dedicated for use with arrays.
+
+```js
+let values = [10, 30, 50, 100];
+let sum = 0;
+for (let number of values) {
+    sum += number;
+}
+console.log(sum); // -> 190
+```
+
+In brackets after the word for, you will not find three fields separated by semicolons. There is a variable declaration, followed by the word of and then an array, the elements of which we will loop through
 
 
+#### for … in
 
-    numberInputTwo != NaN && numberInput != NaN && 
+used to iterate in objects.
+
+#### The break and continue statements
+
+The break statement is used to terminate the execution of a loop or a switch statement. In each of these contexts, whenever the JavaScript engine encounters a break statement, it exits the whole loop or switch statement, and jumps to the first statement after that loop or switch.
+
+```js
+let i = 0;
+// An infinite loop
+while (true){
+    console.log(i);
+    i++;
+    if (i >= 5) {
+        break;
+    }
+}
+
+alert('Exited the loop with a break (${i}).');
+```
+
+Just like break, continue can be used in loops (but not in the switch statement). When used, it applies to the closest surrounding loop. The continue statement, in contrast to break, does not end the whole loop, but rather starts the next iteration of this loop. We can think of it as jumping right to the end of the current iteration.
+
+```js
+for (let i = 0; i < 10; i++) {
+    if (i == 3) {
+        continue;
+    }
+    console.log(i);
+}
+```
+
+Both break and continue are not used particularly often. We should definitely not use them when we can terminate the loop with a properly constructed condition. They are useful in emergency situations, when something unusual happens in loops with more complex iterations.
+
+#### The break keyword
+
+We also need to say a few words about the break keyword. In the example, the break keyword is present in all cases except in the default case (switch). In contrast to if statements, switch statements do not execute just one branch, but rather they execute the entire code from the first case that matches until the end of the switch statement. This behavior is called pass-through and has some uses, but most of the time we want to execute only one branch, and for that reason the break keyword is present. When a JavaScript interpreter comes to a break, it will jump out of the current switch statement.
+
+```js
+let gate = prompt("Choose gate: a, b, or c");
+let win = false;
+
+switch (gate) {
+    case "a":
+        alert("Gate A: empty");
+    case "b":
+        alert("Gate B: main prize");
+        win = true;
+    case "c":
+        alert("Gate C: empty");
+    default:
+        alert("No gate " + String(gate));
+}
+
+if (win) {
+    alert("Winner!");
+}
+```
+
+additionally surrounding the code with curly brackets. This will add to code readability and allow for the declaration of variables only in the given case scope.
+
+```js
+let gate = prompt("Choose gate: a, b, or c");
+let win = false;
+
+switch (gate) {
+    case "a": {
+        let message = "Gate A";
+        console.log(message);
+        break;
+    }
+    case "b": {
+        let message = "Gate B";
+        console.log(message);
+        break;
+    }
+    case "c": {
+        let message = "Gate C";
+        console.log(message);
+        break;
+    }
+    default:
+        alert("No gate " + String(gate));
+}
+
+if (win) {
+    alert("Winner!");
+}
+```
+
+# Module 5
+functions
+
+A function is a separated piece of code, a closed logical whole, intended to perform a specific task. We usually assign a name to that piece of code. With this name (which we given when declaring it) we can call it (execute it) many times in different places of the program.
+
+functions are useful to test, modularity, reducing the amount of code and reuse of code.
+
+If you repeat the same secuence of instructions in the program in many places you can close this secuence in a function.
+
+Declaration Syntax
+
+- function statement
+
+```js
+function functionName(){
+    // code block
+}
+```
+
+Is a good practice to delcare functions at the beginning of the code. Function declarations are automatically moved to the top of the scope, so we can use them before the declaration, as long as they are in the scope.
+
+### functions - local variables
+
+> Do you remember what local variables are? This is how we call the variables that are declared and used in some limited scope and are not visible in the whole program, which means that we can only use them inside that particular scope.
+
+*let* for local variables declared inside a code block.
+*var* for local variables declared inside a function!
+
+### The return statement
+
+We may store the result of calling a function in a variable. So we use the return statement.
+
+Using return statement 
+causes the function to end exactly where this word occurs, event if there are further instructions.
+and it allows to return a given value from the inside of the function to the place where it was called.
+
+> However, using the conditional instructions, we can, for example, react to errors inside the function, and in certain situations interrupt the function immediately.
+
+You can then, for example, assign the returned value to a variable. Let's take a look at an example of the getTrue function.
+
+```js
+function getTrue() {
+    return true;
+}
+
+let test = getTrue();
+console.log(test); // -> true
+```
+
+#### Parameters
+
+functions whose definition specifies the parameters must be invoked in an appropriate way. When such a function is called, the values (literals, variables, function calls) should be placed in parentheses after its name, and are treated as parameters inside the function. The values given during a call are called arguments. Arguments, if there is more than one, are separated by commas and must be passed in the same order as the parameters we define in the function declaration.
+
+> the order of the parameters is important. Inside the function, these parameters are treated as local variables, whose values will be given when the function is called.
+
+#### Shadowing
+
