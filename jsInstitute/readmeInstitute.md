@@ -1485,3 +1485,163 @@ functions whose definition specifies the parameters must be invoked in an approp
 
 #### Shadowing
 
+The parameters are treated inside the function as local variables, they shadow the global variables of the same name (from outer scope)
+
+```js
+let a = 100, b = 200, c = 300;
+
+function test(a) {
+    let b = 10;
+    console.log(a); // parameter a
+    console.log(b); // local variable b
+    console.log(c); // global variable c
+}
+
+test(1);        // -> 1
+                // -> 10
+                // -> 300
+
+console.log(a); // -> 100
+console.log(b); // -> 200
+console.log(c); // -> 300
+```
+
+## Module 5 section 2
+
+### Parameters validation
+
+example of interrupting a function with the return keyword
+
+```js
+function getMeanTemp(temperatures) {
+    if (!(temperatures instanceof Array)) {
+        return NaN;
+    }
+    let sum = 0;
+    for (let i = 0; i < temperatures.length; i++) {
+        sum += temperatures[i];
+    }
+    return sum / temperatures.length;
+}
+
+console.log(getMeanTemp(10));       // -> NaN
+console.log(getMeanTemp([10, 30])); // -> 20
+```
+
+### Recursion
+
+> A factorial is a function, indicated by an exclamation mark in mathematical notation. We pass an integer to this function and its result is obtained by multiplying all integers from the number 1 to the number given as an argument.
+n!=n∙(n-1)∙(n-2)∙… ∙2∙1
+
+However, the definition of a factorial can be written in a slightly different way. It will be the factorial of the previous element n - 1 multiplied by n.
+
+For example, 6! is 5! multiplied by 6. Such a factorial definition uses the recursion, i.e. referring a function to itself (but with a different argument). A recursion is a mechanism that allows to simplify the formal notation of many mathematical functions and present them in an elegant form. We can also successfully use recursion in programming.
+
+| Basic Factorial Function | Elegant Factorial Function (Recursive) |
+| :--- | :--- |
+| ```function factorial (n) { let result = 1; while (n > 1) { result *= n; n--; } return result; }``` | ```function factorial (n) { return n > 1 ? n * factorial(n - 1) : 1; }``` |
+| This is an **iterative** implementation using a `while` loop. It explicitly manages the state with the `result` variable. | This is a **recursive** implementation using a ternary operator. It is often considered more "elegant" due to its conciseness and direct mapping to the mathematical definition of a factorial ($n! = n \times (n-1)!$). |
+| `console.log(factorial(6)); // -> 720` | `console.log(factorial(6)); // -> 720` |
+
+recursion must be handled with care. We shouldn't use it where we can't estimate the number of embedded calls. We should also be very careful in formulating the condition that will interrupt the function sequence calls – errors can cause the program to suspend.
+
+### Functions as first-class members
+
+This means that functions can be treated as any data, which can be stored in variables or passed as arguments to other functions.
+
+```js
+function doNothing() {
+    return undefined;
+}
+
+//function call operator ()
+let a = doNothing(); // assign result of function call
+let b = doNothing;   // assign a function
+
+console.log(typeof a); // -> undefined
+console.log(typeof b); // -> function
+```
+
+```js
+function showMessage(message){
+    console.log(`message: ${message}`);
+}
+
+let sm = shoMessage;
+
+sm("hello"); // message: hello
+```
+
+### Function expressions
+
+This form of defining a function is called **function expression**:
+
+```js
+let myAdd = function add(a, b) {
+    return a + b;
+}
+
+console.log(myAdd(10, 20)); // -> 30
+console.log(add(10, 20)); // -> 30
+```
+
+It could be anonymus if you remove the name:
+
+```js
+let myAdd = function(a, b) {
+    return a + b;
+}
+
+console.log(myAdd(10, 20)); // -> 30
+```
+
+```js
+function operation(func, first, second) {
+    return func(first, second);
+}
+
+let myAdd = function(a, b) {
+    return a + b;
+}
+
+console.log(operation(myAdd, 10, 20)); // -> 30
+
+// Function expression which is defined directly in an operation call.
+console.log(
+    operation(function(a, b) {
+        return a * b;
+    }, 10, 20)
+    ); // -> 200
+```
+
+### Callbacks
+
+Functions that are passed as arguments to other functions.
+
+*Synchronous callbacks*
+
+Subsequent instructions are executed in the order in which they are placed in the code. If you call a function, the instructions in it will be executed at the time of the call. If we pass another function to this function as an argument, and we call it inside an outer function as well, then all instructions will keep their natural order.
+
+```js
+let inner = function() {
+    console.log('inner 1');
+}
+
+let outer = function(callback) {
+    console.log('outer 1');
+    callback();
+    console.log('outer 2');
+}
+
+console.log('test 1');
+outer(inner);
+console.log('test 2');
+
+// Result:
+
+// test 1
+// outer 1
+// inner 1
+// outer 2
+// test 2
+```
