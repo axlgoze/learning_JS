@@ -1679,6 +1679,79 @@ console.log('test 2');
     inner 1
 */
 ```
+*setTimeOut and setInterval functions*
+
+The `setTimeOut` function is used when you want to cause a delay action.
+
+The `setInterval` function is used when you want to cause a delay action **periodically**, so is repeated at fiexd intervals.
+Also, returns a identifier during the call, which can be used to remove the timer used in it (and stop the cyclical function call).
+
+```js
+let inner = function() {
+console.log('inner 1');
+}
+
+let outer = function(callback) {
+console.log('outer 1');
+let timerId = setInterval(callback, 1000) /*ms*/;
+console.log('outer 2');
+
+setTimeout(function(){
+    clearInterval(timerId);
+}, 5500);
+}
+
+console.log('test 1');
+outer(inner);
+console.log('test 2');
+```
+
+Asynchronous function calls are determined by events not related to timers.
+
+> The web page is represented by a global window variable. addEventListener is a window function that allows you to register a certain action to be performed in response to a window-related event.
+
+```js
+window.addEventListener("click", function() {
+    console.log("clicked!");
+
+// Our function is not called until the "click" event occurs, which is absolutely asynchronous. In the meantime, between subsequent clicks, the rest of the program could be executed
+});
+```
 
 
+### Arrow functions
+
+Is a shorter form of a function expression and is composed fo:
+
+- parenthesis containing zero or multiple parameters (if exactly one parameter is present, parenthesis can be omitted)
+- an arrow `=>`
+- the body of the function, which can be sorrounded by curly brackets if is longer.
+
+If an arrow function has only one statement and returns its value, we can omit the return keyword, as it will be implicitly added.
+
+```js
+let add = function(a,b){
+    return a+b;
+}
+
+console.log(add(8,8)) //--> 16
+```
+
+can be written:
+
+
+```js
+let add = (a,b) =>{
+    return a+b;
+}
+
+console.log(add(8,8)) //--> 16
+```
+
+or simplified as:
+
+
+```js
+let add = (a,b) => a + b;
+```
 
