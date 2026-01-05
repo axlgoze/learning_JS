@@ -1483,6 +1483,8 @@ functions whose definition specifies the parameters must be invoked in an approp
 
 > the order of the parameters is important. Inside the function, these parameters are treated as local variables, whose values will be given when the function is called.
 
+> function parameters are named variables passed to a function when it is called.
+
 #### Shadowing
 
 The parameters are treated inside the function as local variables, they shadow the global variables of the same name (from outer scope)
@@ -1544,6 +1546,8 @@ For example, 6! is 5! multiplied by 6. Such a factorial definition uses the recu
 | `console.log(factorial(6)); // -> 720` | `console.log(factorial(6)); // -> 720` |
 
 recursion must be handled with care. We shouldn't use it where we can't estimate the number of embedded calls. We should also be very careful in formulating the condition that will interrupt the function sequence calls – errors can cause the program to suspend.
+
+> A recursive function is a function that call itself again while running
 
 ### Functions as first-class members
 
