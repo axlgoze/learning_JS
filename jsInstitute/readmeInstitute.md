@@ -1,16 +1,16 @@
-# JS Institute README file
+# JS Institute
 
-## JavaScript
+## What is JavaScript?
 
-JS is an interpreted language.
+JS is 
+- an interpreted language.
+- a high-level language (relatively easy to understand for people and separating us from the hardware details).
 
-JS is a high-level language (i.e. relatively easy to understand for people and separating us from the hardware details).
+The **interpreter** *is* the js *engine* **built into the browser**.
 
-The interpreter is the js engine built into the browser.
+> Can also execute JS code with node.JS.
 
-We can also execute JS code with node.JS.
-
-Most modern JS engines use the _Just in time compilation technique (JIT compilation)_ which consist in compiling code fragments during the execution of the program.
+Most **modern JS engines use** the **Just in time compilation technique (JIT compilation)**_ which **consist** in **compiling code fragments** **during** the **execution** of the program.
 
 > The success of a program depends on the quality of the instructions. Precise and unambiguous instructions.
 
@@ -1243,7 +1243,7 @@ it allows to perform one of two actions based on the value of the first operand.
 
 Most often it is used as an alternative to the if ... else statement.
 
-#### The swtich ... case statement
+### The swtich ... case statement
 
 ```js
 switch (expression) {
@@ -1258,9 +1258,11 @@ switch (expression) {
 }
 ```
 
-`break` at the end of each block of code is optionall. Additionally there is a special case named default
+`break` at the end of each block of code is optionall. 
 
-Additionally, a special case named default can be present (by convention placed on the end of the switch statement; however, it isn’t required). The default case is executed when none of the cases matches the expression. The evaluation itself is made with a strict comparison operator (===) so not only must the value match, but also the type of case value and the expression.
+### default
+
+A special case named `default` **can be** present (by convention **placed on the end of the switch statement**; however, it isn’t required). The `default` case **is executed when none of the cases matches the expression**. The evaluation itself is made with a strict comparison operator (===) so not only must the value match, but also the type of case value and the expression.
 
 # MODULE 4 section 2
 
@@ -1275,7 +1277,7 @@ loops are the second form of flow control statement and there are a few types of
 
 > loops allows us to execute a selected piece of code multiple times.
 
-we normally use the while loop when we don't know exactly how many times something should be repeated, but we do know when to stop.
+we normally **use** the while loop **when** we **do not know** exactly **how many times** something should be **repeated**, **but we** do **know when** to **stop**.
 
 ```js
 while(condition) {
@@ -1302,7 +1304,7 @@ do {
 } while(condition);
 ```
 
-### The for loop
+### The FOR loop
 
 ```js
 for (initialization; condition; increment) {
@@ -1316,7 +1318,7 @@ The inside of the parentheses is divided into three fields by semicolons, and ea
     - loop condition statement;
     - loop increment statement.
 
-All three statements are optional and can be left empty, except for ending with a semicolon.
+> All three statements are optional and can be left empty, except for ending with a semicolon.
 
 #### the loop condition statement
 
@@ -1341,9 +1343,9 @@ In brackets after the word for, you will not find three fields separated by semi
 
 used to iterate in objects.
 
-#### The break and continue statements
+### The BREAK and CONTINUE statements
 
-The break statement is used to terminate the execution of a loop or a switch statement. In each of these contexts, whenever the JavaScript engine encounters a break statement, it exits the whole loop or switch statement, and jumps to the first statement after that loop or switch.
+The `break` statement is used to **terminate the execution of a loop** or a *switch* statement. In each of these contexts, whenever the JavaScript engine encounters a break statement, it **exits the whole loop or switch** statement, and jumps to the first statement after that loop or switch.
 
 ```js
 let i = 0;
@@ -1359,7 +1361,7 @@ while (true){
 alert('Exited the loop with a break (${i}).');
 ```
 
-Just like break, continue can be used in loops (but not in the switch statement). When used, it applies to the closest surrounding loop. The continue statement, in contrast to break, does not end the whole loop, but rather starts the next iteration of this loop. We can think of it as jumping right to the end of the current iteration.
+Just like `break`, **`continue` can be used in loops (but not in the switch statement)**. When used, it applies to the closest surrounding loop. The `continue` statement, in contrast to `break`, does not end the whole loop, but rather **starts the next iteration of this loop**. We can think of it as jumping right to the end of the current iteration.
 
 ```js
 for (let i = 0; i < 10; i++) {
@@ -1370,11 +1372,11 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 
-Both break and continue are not used particularly often. We should definitely not use them when we can terminate the loop with a properly constructed condition. They are useful in emergency situations, when something unusual happens in loops with more complex iterations.
+**Both** `break` and `continue` are not used particularly often. We should definitely not use them when we can terminate the loop with a properly constructed condition. They are **useful in emergency situations**, when something unusual happens in loops with more complex iterations.
 
 #### The break keyword
 
-We also need to say a few words about the break keyword. In the example, the break keyword is present in all cases except in the default case (switch). In contrast to if statements, switch statements do not execute just one branch, but rather they execute the entire code from the first case that matches until the end of the switch statement. This behavior is called pass-through and has some uses, but most of the time we want to execute only one branch, and for that reason the break keyword is present. When a JavaScript interpreter comes to a break, it will jump out of the current switch statement.
+We also need to say a few words about the `break` keyword. In the example, the `break` keyword is present in all cases except in the default case (switch). In contrast to if statements, switch statements do not execute just one branch, but rather they execute the entire code from the first case that matches until the end of the switch statement. This behavior is called pass-through and has some uses, but most of the time we want to execute only one branch, and for that reason the `break` keyword is present. When a JavaScript interpreter comes to a `break`, it will jump out of the current switch statement.
 
 ```js
 let gate = prompt("Choose gate: a, b, or c");
@@ -1429,15 +1431,16 @@ if (win) {
 ```
 
 # Module 5
-functions
 
-A function is a separated piece of code, a closed logical whole, intended to perform a specific task. We usually assign a name to that piece of code. With this name (which we given when declaring it) we can call it (execute it) many times in different places of the program.
+# Functions
+
+A function **is a separated piece of code**, a **closed logical whole**, **intended to perform a specific task**. We usually assign a name to that piece of code. With this name (which we given when declaring it) **we can call it** (execute it) **many times in different places** of the program.
 
 functions are useful to test, modularity, reducing the amount of code and reuse of code.
 
-If you repeat the same secuence of instructions in the program in many places you can close this secuence in a function.
+> If you repeat the same secuence of instructions in the program in many places you can close this secuence in a function.
 
-Declaration Syntax
+#### Declaration Syntax
 
 - function statement
 
@@ -1458,11 +1461,11 @@ Is a good practice to delcare functions at the beginning of the code. Function d
 
 ### The return statement
 
-We may store the result of calling a function in a variable. So we use the return statement.
+We may *store the result of calling a function in a variable*. So we use the return statement.
 
 Using return statement 
-causes the function to end exactly where this word occurs, event if there are further instructions.
-and it allows to return a given value from the inside of the function to the place where it was called.
+**causes the function to end exactly where this word occurs**, event if there are further instructions.
+**and** it allows to **return a given value from the inside of the function to the place where it was called**.
 
 > However, using the conditional instructions, we can, for example, react to errors inside the function, and in certain situations interrupt the function immediately.
 
@@ -1725,13 +1728,13 @@ window.addEventListener("click", function() {
 
 ### Arrow functions
 
-Is a shorter form of a function expression and is composed fo:
+**Is a shorter form of a function expression** and is composed fo:
 
-- parenthesis containing zero or multiple parameters (if exactly one parameter is present, parenthesis can be omitted)
-- an arrow `=>`
-- the body of the function, which can be sorrounded by curly brackets if is longer.
+- Parenthesis containing zero or multiple parameters (if exactly one parameter is present, parenthesis can be omitted)
+- An arrow `=>`
+- The body of the function, which can be sorrounded by curly brackets if is longer.
 
-If an arrow function has only one statement and returns its value, we can omit the return keyword, as it will be implicitly added.
+**If** an arrow function has **only one statement and returns its value**, we **can omit** the **return** keyword, as it will be implicitly added.
 
 ```js
 let add = function(a,b){
@@ -1759,3 +1762,290 @@ or simplified as:
 let add = (a,b) => a + b;
 ```
 
+# Module 6
+**Errors, exceptions, debugging, and troubleshooting**
+
+## section 1 Errors and Exceptions
+
+>*Errors will happen.*
+
+> "If debugging is the process of removing software bugs, then programming must be the process of putting them in."
+> — **Edsger W. Dijkstra**
+
+
+Grammar, or formally, the **Syntax** of a programming language, is a **set of rules** defining the structure of the instructions (that is, the sentences of natural language). These rules are usually very precise and specify.
+
+Each language also has its own limited **vocabulary**, which is a **list of words** that can be used to build instructions.
+
+
+### Reference error
+It occurs when we **try to access a function or a variable that doesn't exist**.
+The JavaScript engine does not know the meaning of the given name, so it is an error that we will classify as a semantic error.
+
+The corresponding exception is thrown at the execution time of the program, when the wrong instruction is reached (i.e. in JavaScript, semantic errors are run-time errors).
+
+### Errors and exceptions
+
+> If an error can be uncaught, it can probably be caught.
+
+When JavaScript detects syntactic or semantic errors, it generates and **throws specific objects** containing information about the encountered error.
+
+The **run-time errors** (exceptions) appear while the program is running.
+
+Error Categories: 
+---
+
+0. *Type* error occurs when a certain value is not of the expected type. Typical examples are:
+
+```js
+const someConstValue = 5;
+someConstValue = 7; // -> Uncaught TypeError: Assignment to constant variable.
+
+
+let someNumber = 10;
+someNumber.length(); // -> Uncaught TypeError: someNumber.length is not a function
+```
+
+
+1. *vocabulary* error (reserved words)
+
+2. *logical* error (impossible to detect automatically. We’re making it do something different to what we intended). The JavaScript interpreter is not able to detect such errors, because it cannot know what we plan to achieve by writing such a function. Logical errors can only occur under certain specific circumstances.
+
+```js
+let multiply = (a, b) => a + b;  
+let result = multiply(10, 20);
+console.log(result); // -> 30 ?
+```
+
+3. *Syntax* error: <u>The program will not run if it contains a syntax error</u>. (The execution of the program is interrupted at the line of the error.)
+
+```js
+let multiply = (a b) => a + b; // -> Uncaught SyntaxError: Unexpected identifier
+let result = multiply(10, 20);
+console.log(result);
+```
+
+
+4. *Semantic* error (reference error): The interpreter will start the program and stop its execution after reaching such an instruction. will not allow the compiling and running of the program.
+
+```js
+console.log('abc'); // -> abc
+conole.log('def'); // -> Uncaught ReferenceError: conole is not defined
+console.log('ghi');
+```
+The program will stop working only at the second line, and it will still be able to execute the first line correctly. It is possible to prevent the program from stopping in such a situation (exception/error handling). To handle exceptions generated we use the `Try ... catch` statement:
+
+
+```js
+try {
+    console.log('abc'); // -> abc
+    conole.log('abc');
+} catch (error) {  
+    console.log(error.message); // -> conole is not defined 
+}
+```
+
+If an exception is thrown in the code block after the try keyword, the program does not interrupt completely, but jumps to the part of the code after the catch keyword, and continues from there.
+
+>Other errors
+>
+>There are a few more error types: EvalError, InternalError, URIError, and rangeError
+
+---
+
+### Errors without exceptions?
+
+Not all erroneous situations throw exceptions. Many of them are handled in a slightly different way. 
+
+```js
+console.log(Math.pow("abc", "def")); // -> NaN
+```
+The function does not generate an exception, however, but returns the `NaN` value.
+
+If you are learning about a new function or operator, you have to check in the documentation (e.g. on the MDN page) how they behave in the case of errors. Some of them will generate exceptions, while others will return some specific values. Depending on that, you will be able to properly prepare yourself for handling errors using the try method or simple conditional instructions.
+
+### The try ... catch statement
+
+```js
+try {
+    // code to try
+} catch (error) {
+    // code to run in case of an error, which throw an exception
+}
+```
+>catch receives the parameter error. A variable name that will hold information about the error caughted. `error`, `err`, or just `e`, are commonly  names used.
+
+If we have a piece of code that can possibly go wrong, we can enclose it in the `try` clause. JavaScript will `try` to execute this code, and **if any error occurs and an exception is thrown**, the code inside the `catch` block will be executed; if the `try` code is executed without errors, then the `catch` block is ignored. After executing the commands from the `catch` block, the program will continue to run from the first instruction outside the `try ... catch` statement.
+
+### Conditional exception handling
+
+Sometimes we want to be able to react differently to specific types of errors inside the `catch` block. We can do this by using the operator `instanceof`
+
+```js
+let a = -2;
+try {
+    a = b;
+} catch (error) {
+    if (error instanceof ReferenceError) {
+        console.log("Reference error, reset a to -2"); // -> Reference error, reset a to -2
+        a = -2;
+    } else {
+        console.log("Other error - " + error);
+    }
+}
+console.log(a); // -> -2
+```
+
+### Finally statement
+
+The last optional block of the `try` statement is the `finally` block. It can be used with or without the `catch` block, and it’s **always executed** after `try` and `catch` blocks.
+
+```js
+try {
+    // code to try
+} finally {
+    // this will be always executed
+}
+```
+
+
+```js
+let a = 10;
+try {
+    a = b;  // ReferenceError
+} finally {
+    console.log(a); // -> 10
+}
+console.log(a);
+```
+
+```js
+let a = 10;
+try {
+    a = b;  // ReferenceError
+} catch (error) {
+    console.log("An Error!"); // -> An Error!
+} finally {
+    console.log("Finally!"); // -> Finally!
+}
+console.log(a); // -> 10
+```
+
+> `Try...catch...finally` blocks can be nested.
+
+```js
+let a = 10;
+try {
+    a = b; // First ReferenceError
+} catch (error) {
+    try {
+        console.log(b); // Second ReferenceError
+    } catch {
+        console.log("Second catch!"); // -> Second catch!
+    }
+} finally {
+    console.log("Finally!"); // -> Finally!
+}
+```
+
+### Throw statement and custom errors
+
+You can throw anything (String, number) but proffesionally is throw Error objects (a composite data type which can store multiple values at the same time).
+
+```js
+...
+
+if (n > 20) {
+        throw new RangeError("Max value 20"); // a predefined error object
+    }
+
+    console.log(f(1000)); // -> Uncaught RangeError: Max value 20
+```
+
+
+
+> Error information is usually quite precise and Check the JavaScript documentation for the behavior of operators and functions in the case of errors.
+
+### Code Debugging and Troubleshooting
+
+> Most of the time, logical errors are the hardest to find if the code is not tested properly.
+
+The `debugger` statement, when encountered by JavaScript, will stop code execution at that place.
+
+### Debugging
+
+```js
+console.log("Before debugger");
+debugger;
+console.log("After debugger");
+```
+
+Whenever JavaScript encounters the debugger statement, it checks if the debugger is present (web tools), and if so, code execution is halted at that exact point.
+
+### Step-by-step program execution
+
+We can stop program execution at any place using a debugger statement, and then continue execution one instruction at a time. In this mode, we can see each line that is executed, and each line that is not. We can easily see if the logic in the flow control statements is valid or not.
+
+debug mode (common) options:
+
+- Resume / continue: Resume the execution in a normal way.
+- Step Into: Executes the next instruction in the code only, pauses again. If the nex instruction is a function call, using Step into will jump inside the code of this funtcion.  (treating the function as a set of instructions, which we want to execute separately)
+- Step Over: used when the next instruction is a function call, code will *not jump* into the function, code, but whole fuction will be exected, and the program will be paused again after jumping out of this function.
+- Step Out: This allows us to immediately jump out of a function in which the code is paused. (treating the function call as something indivisible so it resumes program operation by executing successive commands until the current function is exited to the function from which it was called).
+
+> we rarely use the debugger statement. Most often, at the place where the program should stop, we just indicate it using *breakpoints* set directly in the Developer Tools.
+
+> we can jump between successive breakpoints with Resume.
+
+### The Call stack
+
+![debuggin mode](./media/callStack.png "internet explorer browser")
+
+Call Stack is important in the case of nested functions.
+
+The main function doesn't have a name, in Firefox it is marked as (global), and in Chrome (anonymous)
+
+If you click on the name of the outer function on the Call Stack, you will be taken to the context of that function
+
+Note that despite the context change, the program execution still stops in exactly the same place.
+
+During the step-by-step execution, we have free access to the variables of our program, which are visible in the context we are currently in. So we can modifiy the value of the local variables.
+
+Above the Call Stack window is another window called Watch (or Watch expressions). It allows us to view and modify the variables without using the console. In this window, we can find the + button, which after pressing, we can enter the name of the variable whose value changes we want to track. In order to change the current value of a variable.
+
+![debuggin mode](./media/watch.png "watch")
+
+
+Remember that during function calls or in code blocks, the scope of variable visibility may vary, so don't be surprised if the values of local variables are not visible in the global context.
+
+Sometimes it is not possible to locate the problem immediately and it is necessary to trace the operation of the program one fragment at a time, preferably using a step-by-step operation.
+
+> The ability to use a debugger is essential for every programmer.
+
+### Measuring code execution time
+
+The aspect of code execution speed is quite important. It is affected by many elements, such as the choice of an optimal algorithm for solving a given problem, the selection of appropriate functions, or the avoidance of redundant actions.
+
+One of the easiest ways to measure the speed of the program is to use the `console.time` and `console.timeEnd`
+
+```js
+let part = 0;
+console.time('Leibniz');
+for (let k = 0; k < 10000000; k++) {
+    part = part + ((-1) ** k) / (2 * k + 1);
+}
+console.timeEnd('Leibniz'); // -> Leibniz: 456.60498046875 ms
+let pi = part * 4;
+console.log(pi); // -> 3.1415925535897915
+```
+
+```js
+let part = 0;
+console.time('Leibniz');
+for(let k = 0; k < 10000000; k++) {
+    part = part + (k % 2 ? -1 : 1) / (2 * k + 1);
+}
+console.timeEnd('Leibniz'); // -> Leibniz: 175.5458984375 ms
+let pi = part * 4;
+console.log(pi);
+```
