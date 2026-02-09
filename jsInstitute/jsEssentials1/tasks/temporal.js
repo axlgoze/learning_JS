@@ -71,22 +71,33 @@
 // }
 
 
-function largest(a, b, c) {
-    if (a >= b && a >= c) {
-        return a;
-    } else if (b >= a && b >= c) {
-        return b;
-    } else {
-        return c;
-    }
-}
+// function largest(a, b, c) {
+//     if (a >= b && a >= c) {
+//         return a;
+//     } else if (b >= a && b >= c) {
+//         return b;
+//     } else {
+//         return c;
+//     }
+// }
 
-console.log(largest(1, 1, 2)); // -> 2
-console.log(largest(1, 2, 3)); // -> 3
-console.log(largest(3, 2, 1)); // -> 3
-console.log(largest(2, 2, 1)); // -> 1
+// console.log(largest(1, 1, 2)); // -> 2
+// console.log(largest(1, 2, 3)); // -> 3
+// console.log(largest(3, 2, 1)); // -> 3
+// console.log(largest(2, 2, 1)); // -> 1
 
 
 // function largest(a, b, c) {
 //     return Math.max(a, b, c);
 // }
+
+// let x = [10,12,30,40]
+// let y = [50,60]
+// x.reverse().push(y)
+// console.log(x) // [10,12,30,40,[50,60]]
+// console.log("----")
+// console.log(y)
+
+// let test = prompt("message");
+// console.log(`- ${test} -`)
+

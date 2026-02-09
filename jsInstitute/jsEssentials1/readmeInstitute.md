@@ -5,6 +5,7 @@
 JavaScript (JS) is:
 - An **interpreted** language.
 - A **high-level** language, making it relatively easy to understand and separating developers from hardware details.
+- An extremely flexible language.
 
 The **interpreter** is the JavaScript engine built into web browsers. JS can also be executed using **Node.js**.
 
@@ -133,6 +134,8 @@ JavaScript is **weakly typed**, meaning variables can change types dynamically.
 ### Complex Types:
 - **Object**: Key-value pairs
 - **Array**: Ordered collections
+
+> If we have not explicitly assigned any value to a declared variable, it contains an undefined value by default.
 
 ### Type Conversion:
 Use constructor functions for explicit conversion:
