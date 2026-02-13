@@ -397,4 +397,43 @@ The three dots preceding the object cause it to be *spread* out *into* individua
 let point4 = { ...point3, ...{z: 200, color: "red"}};
 console.log(point4); // --> {"x":10,"y":20,"z":200,"color":"red"}
 ```
+`Object.assign` and `spread` represents **shallow cloning** whicxh does not copy nested objects, operating only on their references.
 
+```js
+let circle1 = {
+ 	radius: 100,
+ 	center: {
+	 	x: 100,
+ 	 	y: 100
+ 	}};
+
+let circle2 = {…circle1};
+
+circle1.radius = 200;
+circle1.center.x = 200;
+console.log(circle2.radius);
+console.log(circle2.center.x);
+
+console.log(circle1 === circle2); // false
+console.log(circle1.center === circle2.center); // true !
+```
+
+JavaScript does not have a built-in mechanism for **deep cloning**, but we can easily write this piece of code ourselves. The function that we write will check the types of all properties of the copied object.
+
+```js
+let deepClone = function(obj) {
+let newObj = {...obj};
+for(property in newObj) {
+    if(typeof newObj[property] === "object") {
+        newObj[property] = deepClone(newObj[property]);
+    }
+}
+return newObj;
+}
+```
+> If you need a copy of the nested objects, use deep cloning
+
+| Property Type | What is copied? | Behavior | Example |
+| :--- | :--- | :--- | :--- |
+| **Primitive** (number, string, boolean) | The **actual value** | They become independent. Changing one doesn't affect the other. | `radius` |
+| **Object / Array** (reference type) | The **memory address** (reference) | Both objects point to the same "child" object. | `center` |
