@@ -83,17 +83,57 @@ let spaceShip = {
                 }
             }
         }]
+    },
+    getState () {
+        return spaceShip
+    },
+    met: () =>{
+        return  typeof this.speed === "number" ? "spaceship" : "unknown"
     }
 };
 
-let deepClone = function(obj) {
-let newObj = {...obj};
-for(property in newObj) {
-    if(typeof newObj[property] === "object") {
-        newObj[property] = deepClone(newObj[property]);
-    }
-}
-return newObj;
+// let deepClone = function(obj) {
+// let newObj = {...obj};
+// for(property in newObj) {
+//     if(typeof newObj[property] === "object") {
+//         newObj[property] = deepClone(newObj[property]);
+//     }
+// }
+// return newObj;
+// // }
+// console.log(spaceShip.getState());
+// console.log(spaceShip.met());
+// console.log(spaceShip["getState"]() );
+
+// let spaceShipOne = {...spaceShip};
+// console.log(spaceShipOne.speed);
+// console.log("arrow: ",spaceShipOne.met());
+let contacto = {
+    _tel: "207-662-5412",
+    get tel() {return this._tel;},
+    set tel(t) { this._tel = t;}
+
+};
+// console.log(contact.tel);
+// contact.tel = "100-100-1000";
+// console.log(contact.tel);
+
+
+
+let contact = {
+	_age: 36,
+    firstName : "David",
+    lastName : "Taylor",
+    get fullName() {return `${this.firstName} ${ this.lastName}`;},
+    get age() { return this._age;},
+    set age(a) { if( a > 0) this._age = a;}
+};
+
+
+for (const prop in contact) {
+    let desc = Object.getOwnPropertyDescriptor(contact, prop);
+    // console.log(prop);
+    console.dir(desc);
+    
 }
 
-console.log(deepClone(spaceShip));

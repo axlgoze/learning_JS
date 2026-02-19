@@ -437,3 +437,93 @@ return newObj;
 | :--- | :--- | :--- | :--- |
 | **Primitive** (number, string, boolean) | The **actual value** | They become independent. Changing one doesn't affect the other. | `radius` |
 | **Object / Array** (reference type) | The **memory address** (reference) | Both objects point to the same "child" object. | `center` |
+
+## Methods
+
+```js
+let circle = {
+    radius: 100,
+    center: {
+        x: 0,
+        y:0
+    },
+    getType: function() {
+        return "circle";
+    }
+};
+```
+The next method declaration can be simplified
+
+```js
+let circle = {
+radius: 100,
+ center: {
+    x: 0,
+        y:0
+    },
+    getType () {
+        return "circle";
+    }
+};
+```
+In order to call up the method, we usually use dot notation.
+
+We point to the object, name the method, and then add a parenthesis.
+
+can also be called up using bracket notation.
+
+```js
+console.log(circle["geType"]());
+```
+
+### This.
+
+The methods make real sense when they use object fields. To access to the object's fields from inside the method we use `this` that will always contain a reference to the object we are in.
+
+```js
+getType () {
+		return typeof this.radius === "number" ? "circle" : "unknown" ;
+}
+
+console.log(circle.getType());
+let figure = {...circle};
+delete circle.radius;
+console.log(figure.radius);
+console.log(figure.getType()); // "circle"
+```
+*Arrow functions* differ from *ordinary functions* not only in form. They contain inside themselves lexical scoping, which means that they 'inherit' the this from the context where they were written (their parent environment).
+
+Without going into detail, the method we would define in the form of an arrow will not have access to the properties of the object using this.
+
+**We should not use arrow functions to declare object methods.**
+
+| Feature | Regular Function (`function`) | Arrow Function (`=>`) |
+| :--- | :--- | :--- |
+| **`this` Binding** | **Dynamic**: Depends on how the function is called. | **Lexical**: Inherits `this` from the surrounding scope. |
+| **Object Methods** | **Ideal**: `this` points to the object owner. | **Bad**: `this` usually points to `window`/`global`. |
+| **Use Case** | Defining methods, constructors. | Callbacks, array methods (`map`, `filter`), timers. |
+| **Construction** | Can be used with `new`. | **Cannot** be used as a constructor. |
+
+### getters and setters
+
+functions whose task is to change (set) or check (get) the properties of an object.
+
+They have several specific features:
+
+- we declare them using the keywords set and get;
+- the setter method must take exactly one argument;
+- the getter method cannot accept any argument;
+- these methods are seen as ordinary properties with the name of the method;
+- setter and getter methods are not called as functions, they are used to assign a - value to a property (setter) or to take a value from a property (getter)
+- there may be a pair of setter and getter of the same name, and it will be - treated as a property with read and write capabilities.
+
+Setter and getter methods can perform much more complex actions than just operations on a single property. They are often used to create fake fields that are, for example, aggregated from the values of several real fields, modified on the fly, validated, etc.
+
+```js
+set age(a) { if( a > 0) this._age = a;}
+```
+
+## Property configuration
+
+`Object.getOwnPropertyName`
+This method allows us to retrieve information about the indicated property of the selected object.
