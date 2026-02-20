@@ -120,20 +120,46 @@ let contacto = {
 
 
 
-let contact = {
-	_age: 36,
-    firstName : "David",
-    lastName : "Taylor",
-    get fullName() {return `${this.firstName} ${ this.lastName}`;},
-    get age() { return this._age;},
-    set age(a) { if( a > 0) this._age = a;}
-};
+// let contact = {
+// 	_age: 36,
+//     firstName : "David",
+//     lastName : "Taylor",
+//     get fullName() {return `${this.firstName} ${ this.lastName}`;},
+//     get age() { return this._age;},
+//     set age(a) { if( a > 0) this._age = a;}
+// };
 
 
-for (const prop in contact) {
-    let desc = Object.getOwnPropertyDescriptor(contact, prop);
-    // console.log(prop);
-    console.dir(desc);
+// for (const prop in contact) {
+//     let desc = Object.getOwnPropertyDescriptor(contact, prop);
+//     // console.log(prop);
+//     console.dir(desc);
     
-}
+// }
+
+// console.log(Object.getOwnPropertyNames(spaceShip));
+// console.log(Object.keys(spaceShip));
+// console.log(Object.getOwnPropertyDescriptor(spaceShip, "getState"));
+
+
+let contact = {
+    name: "Axl",
+    email: "fasdlkfjadsklf"
+};
+Object.defineProperty(contact, "_age", {
+    value: 36,
+    writable: true,
+    enumerable: false,
+    configurable: true
+});
+
+// console.log(Object.keys(contact));
+// console.log(contact._age);
+// console.log(Object.getOwnPropertyDescriptor(contact, "_age"));
+// console.log(Object.getOwnPropertyDescriptor(contact, "name"));
+
+let enumKeys = Object.keys(contact);
+let allKeys = Object.getOwnPropertyNames(contact);
+console.log(".keys:", enumKeys);
+console.log(".getOwnPropertyNames:", allKeys);
 

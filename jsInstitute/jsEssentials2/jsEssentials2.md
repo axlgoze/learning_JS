@@ -525,5 +525,66 @@ set age(a) { if( a > 0) this._age = a;}
 
 ## Property configuration
 
-`Object.getOwnPropertyName`
+`Object.getOwnPropertyDescriptor`
 This method allows us to retrieve information about the indicated property of the selected object.
+
+```js
+let x = Object.getOwnPropertyDescriptor(myObj,"proName");
+```
+returns the configuration of properties
+
+```js
+{
+value: "David", 
+writable: true, 
+enumerable: true, 
+configurable: true
+}
+```
+
+all Object properties created have all their configuration attributes set to true by default.
+
+We can set our own configuration of properties using the `Object.defineProperty` method.
+
+used to create a new object property, but it can also be used to modify an existing property.
+
+```js
+let contact = {};
+Object.defineProperty(contact, "_age", {
+    value: 36,
+    writable: true,
+    enumerable: false,
+    configurable: true
+});
+
+Object.keys(contact);
+console.log(contact._age);
+```
+
+Setting the attribute `configurable` to false will make it impossible to reconfigure the property or to delete it with the `delete` command.
+
+> `Object.keys` and the `for ... in` loop operate only on properties that are enumerable.
+
+However, if we would like to retrieve all the fields without paying attention to their configuration, we can use the `Object.getOwnPropertyNames` method it returns an array of all the keys, regardless of wheter they are enumerable or not.
+
+```js
+let allKeys = Object.getOwnPropertyNames(contact);
+console.log(".getOwnPropertyNames:", allKeys);
+```
+
+## Object configuration
+The configuration can also be changed at the level of the whole object (not only its individual properties).
+
+The methods are:
+
+- **Object.preventExtensions(obj)**
+
+    *won't* be able to *add* new properties;
+- **Object.seal(obj)**
+    
+    does not allow the *adding*, *removing*, or *reconfiguring* of the properties;
+- **Object.freeze(obj)**
+
+    similar to Object.seal, but additionally makes it *impossible* to *change* the *value* of the property.
+
+    And so, we can use these methods respectively: `Object.isExtensible`, `Object.isSealed(obj)` and `Object.isFrozen(obj)`.
