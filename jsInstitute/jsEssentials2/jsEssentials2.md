@@ -14,7 +14,7 @@ From a formal point of view, an object can be treated as a special kind of array
 
 In computer science, arrays of this type are called association (we "associate" an element with a key) arrays or, in the theory of data structures, they are called `maps`
 
-We  refer to the individual elements of an `object` by means of `keys`.
+We  refer to the individual elements of an `object` by means of their `keys`.
 
 A `key` is simply a label (a name), which is unique within an object and unambiguously defines the selected element.
 
@@ -42,7 +42,7 @@ console.log(sampleObject.name); // -> en to tre
 console.log(sampleObject.delay);    // -> 100
 ```
 
-key == name
+>key == name
 property == object field.
 
 ## Literals
@@ -67,7 +67,7 @@ console.log(contact.tel);
 
 ```
 
-The key is a string. When creating an object, the key can be enclosed in quotation marks, although this is not necessary (JavaScript automatically interprets it as a string). However, this can be useful when you want to create a key consisting of several words.
+*The key is a string*. When creating an object, the key can be enclosed in quotation marks, although this is not necessary (JavaScript automatically interprets it as a string). However, this can be useful when you want to create a key consisting of several words.
 
 ```Js
 let contact = {
@@ -92,13 +92,18 @@ we can assign primitive values to variables, complex values such as arrays or ob
 
 ```js
 let nr = 10; 
+
 let b = false; 
+
 let str = "uno dos tres"; 
+
 let arr = [10, 20, 30]; 
+
 let obj = {
-x: 10, 
-y: 20
+    x: 10, 
+    y: 20
 }; 
+
 let fn = function(arg) {
     console.log(arg)
 }; 
@@ -110,15 +115,15 @@ Object properties can be treated in exactly the same way as variables – you ca
 
 ```js
 let test = {
-nr: 10, 
-b: false, 
-str: "uno dos tres", 
-arr: [10, 20, 30], 
-obj: {
-    x: 10, 
-    y: 20
-}, 
-fn: function(arg) {console.log(arg)} 
+    nr: 10, 
+    b: false, 
+    str: "uno dos tres", 
+    arr: [10, 20, 30], 
+    obj: {
+        x: 10, 
+        y: 20
+    }, 
+    fn: function(arg) {console.log(arg)} 
 };
 
 test.fn(123);
@@ -141,7 +146,7 @@ A function that is the property of an object will be called a `method`
 
 > properties of objects describe their characteristics, methods describe their characteristic behavior, or ways of changing the state of an object.
 
-One of the main reasons of methods is to affect the state of the object.
+* One of the main reasons of methods is to affect the state of the object.
 
 State (Properties): It is what the object is or has. They are static data (strings, numbers, booleans). 
 Behavior (Methods): It is what the object does. They are functions that can check or change the state.
@@ -164,8 +169,9 @@ console.log(contact.firstName); // Ronald
 
 - Modifying a property
 By default, there are no restrictions on modifying the values placed in object properties. a field can be an array and at some point of the program an obejct.
+---
 
-- Deleting
+**Deleting**
 
 We use the keyword `delete` to indicate the property that is to disappear from the object.
 
@@ -175,7 +181,7 @@ delete contact.firstName
 
 ## bracket notation
 
-This method is similar to referencing an array field, except that we don't give the index of an element, but instead we give its key. Remember, the key is a string!
+This method is similar to referencing an array field, except that we don't give the index of an element, but instead we give its key.
 
 ### Multi-words key
 
@@ -189,7 +195,7 @@ let contact = {
 	"first name": "Ronald"
 };
 
-contact["first name"] = "Tim";
+contact["first name"] = "Tim"; ✔︎
 contact.first name = "Tim";	// SyntaxError: Unexpected identifier
 contact."first name" = "Tim";	// SyntaxError: Unexpected string
 ```
@@ -504,7 +510,7 @@ Without going into detail, the method we would define in the form of an arrow wi
 | **Use Case** | Defining methods, constructors. | Callbacks, array methods (`map`, `filter`), timers. |
 | **Construction** | Can be used with `new`. | **Cannot** be used as a constructor. |
 
-### getters and setters
+### Getters and Setters
 
 functions whose task is to change (set) or check (get) the properties of an object.
 
@@ -535,10 +541,10 @@ returns the configuration of properties
 
 ```js
 {
-value: "David", 
-writable: true, 
-enumerable: true, 
-configurable: true
+    value: "David", 
+    writable: true, 
+    enumerable: true, 
+    configurable: true
 }
 ```
 
@@ -588,3 +594,150 @@ The methods are:
     similar to Object.seal, but additionally makes it *impossible* to *change* the *value* of the property.
 
     And so, we can use these methods respectively: `Object.isExtensible`, `Object.isSealed(obj)` and `Object.isFrozen(obj)`.
+
+---
+
+## Other ways to create objects
+
+- literal notation
+
+## Factory
+
+Is a function that will return a new object of our defined type every time it is called. 
+
+> factory is a programming pattern rather than a mechanism of the language itself
+
+The `createPoint` function is our factory and it can be shorter:
+
+```js
+(1)----------------------------------
+let createPoint  = function(x, y) {
+    let obj = {};
+
+    obj.x = x;
+    obj.y = y;
+
+    return obj;
+};
+
+let point1 = createPoint(1,1);
+let point2 = createPoint(2,2);
+console.log(point1.x); // ->  1
+console.log(point2.x); // -> 2
+
+(2)----------------------------------
+let createPoint  = function(x, y) {
+    return {
+        x:x,
+        y:y
+    }
+};
+
+(3)----------------------------------
+let createPoint  = function(x, y) {
+    return {
+        x,
+        y
+    }
+};
+
+(4)----------------------------------
+let createPoint = (x,y) => {x,y}
+
+```
+
+## Closure
+
+It is the ability of a function to remember and access variables from its original environment, even after that environment has finished running.
+
+It's important to understand that functions in JavaScript don't travel alone; they travel with a "backpack" where they store the variables that surrounded them when they were created.
+
+
+```js
+let createColoredPoint  = function(x, y, color) {
+let _info = "... object under construction";
+let _color = color;
+console.log(_info);
+
+return {
+    x,
+    y,
+    getColor() {return _color}
+}
+};
+let coloredPoint1 = createColoredPoint (1, 1, "red");// -> ... object under construction
+let coloredPoint2 = createColoredPoint (2, 2, "green");// -> ... object under construction 
+console.log(coloredPoint1.getColor());	// -> red
+console.log(coloredPoint2.getColor());	// -> green
+console.log(coloredPoint1._color);   // -> undefined !!!
+```
+
+The variable _color is not a property of the object. It is a variable that lives in the "backpack" (the closure) of the getColor function.
+
+
+Summary:
+
+- Persistence: _color survives the execution of the function.
+
+- Privacy: _color is inaccessible from outside the object (it returns undefined).
+
+- Controlled access: Only the getColor method can read that value because it "was there" when the variable was defined.
+
+## The constructor, new
+
+A constructor, like a factory, is a function that creates and returns an object. However, it differs from the factory in several respects.
+
+requires the use of the keyword new
+Additionally, it implicitly performs some actions (e.g. creating an empty object).
+
+
+Usually the names of constructors begin with capital letters
+
+The first change that is noticeable is the lack of the word return. In the constructor, this is not necessary, after running it with new, it will automatically return an implicitly created object. We have access to this implicitly created object in the constructor using the keyword `this`. With `this`, we define and initiate the properties of the new object. Because the constructor is a function.
+
+```js
+let ColoredPoint = function(x, y, color) {
+let _info = "... object under construction";
+let _color = color;
+console.log(_info);
+
+this.x = x;
+this.y = y;
+this.getColor = function() {return _color};
+};
+let coloredPoint1 = new ColoredPoint(1, 1, "red");
+let coloredPoint2 = new ColoredPoint(2, 2, "green"); 
+console.log(coloredPoint1.getColor());	// -> red
+console.log(coloredPoint2.getColor());	// -> green
+console.log(coloredPoint1._color);   // -> undefined !!!
+```
+
+It's time to complicate our idea of objects a little. With `{}` or `new` we do not really create an empty object.
+
+To create it, we use the implicitly generic Object constructor, on which most objects in JavaScript are built.
+
+The Object constructor contains some generic properties and methods that can be useful in all objects.
+
+> objects created from others are prototypes
+
+## new Object()
+
+This way we will create an empty object (without our properties, but with properties supported by Object).
+
+```js
+let emptyObject = new Object();
+console.log(emptyObject.constructor.name); //   ---> Object
+
+```
+
+## Object.create
+
+It allows you to create a new object based on an existing object (which will be used as a prototype of our new object). The base object is given as an argument for calling the method.
+
+Unless you are 100% sure why you need an object that is not based on the generic Object constructor, create it in the normal way (factory, constructor, object literals, classes).
+
+##  Class
+
+There is another, very important method for creating objects. In the case of JavaScript, it was added in one of the following language editions (ECMA6).
+
+
